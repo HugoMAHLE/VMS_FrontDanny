@@ -1,0 +1,89 @@
+.a{
+    background-color: rgb(3, 133, 3);
+    color: rgb(252, 252, 252);
+    border-radius: 5px;
+    border-color: rgb(3, 133, 3);
+    height: calc(10svh - 65px);
+}
+
+.division{
+    padding: 10px;
+}
+
+.ag-theme-quartz{
+    --ag-row-hover-color: rgb(131, 131, 131);
+    --ag-header-background-color: rgb(107, 128, 197);
+}
+
+.card{
+  height: 80%;
+}
+
+.footer{
+  height: 10%;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #0d155a;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '+';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:after {
+  content: "";
+  background: #2c0ed3;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

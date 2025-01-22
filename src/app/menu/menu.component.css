@@ -1,0 +1,38 @@
+mat-toolbar{
+    background-color: rgb(255, 255, 255);
+    
+}
+
+mat-sidenav{
+    background-color: rgb(255, 255, 255);
+    color:rgb(38, 38, 187);
+    width: 200px;
+    border-right: none;
+    padding: 16px 0;
+}
+
+.content{
+    height: calc(100svh - 98px);
+    border-radius: 10px;
+    padding: 16px;
+    max-width: 1520px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+mat-sidenav-container{
+    background-color: rgb(131, 131, 131);
+    color: black;
+    height: calc(100svh - 65px);
+
+}
+
+.img{
+    text-align: justify;
+}
+
+mat-divider{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(131, 131, 131);
+}

@@ -1,0 +1,71 @@
+
+<!-- <h2>Select your visitors</h2>
+<div class="card">
+    <div class="card">
+        <ag-grid-angular class="ag-theme-quartz" style="height: 300px;" [rowData]="rowData" [columnDefs]="colDefs" rowSelection="multiple" [defaultColDef]="defaultColDef">
+        </ag-grid-angular>
+    </div>
+    <div class="division" style="text-align: center;">
+        <button class="a" routerLink="/CreateVisit">
+            OK
+        </button>
+    </div>
+</div> -->
+
+<h2>Select Your Visitors</h2>
+<div class="card">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="$event ? selectAllRows() : null"
+          [checked]="isAllSelected()"
+        ></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox [checked]="row.isSelected" (change)="onSelectionChange(row, $event)">
+          Select
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="fname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.firstname }}</td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.lastname }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>E-mail</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+      <td mat-cell *matCellDef="let row">{{ row.phone }}</td>
+    </ng-container>
+
+    <!-- company Column -->
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Company</th>
+      <td mat-cell *matCellDef="let row">{{ row.company }}</td>
+    </ng-container>
+
+    <!-- Header and Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div class="footer">
+  <button class="button" style="vertical-align:middle" (click)="storeVisitors()"><span>Add </span></button>
+</div>

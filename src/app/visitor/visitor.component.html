@@ -1,0 +1,199 @@
+<!-- <div class="container">
+    <h2>Visitor</h2>
+    <h4>Create a new visitor</h4>
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="card-body">
+                    <label class="form-label">
+                        Name
+                    </label>
+                    <input Name="fname" [(ngModel)]="visitorObj.fname" class="form-control" placeholder="Please enter your name"/>
+                    <div class="errors-container"
+                        *ngIf="nameControl.invalid && (nameControl.touched) || nameControl.dirty">
+                        <p class="error-msg" *ngIf="nameControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <label class="form-label">
+                        Last name
+                    </label>
+                    <input type="text" formControlName="lname" class="form-control"
+                        placeholder="Please enter your last name">
+                    <div class="errors-container"
+                        *ngIf="LnameControl.invalid && (LnameControl.touched) || LnameControl.dirty">
+                        <p class="error-msg" *ngIf="LnameControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <label class="form-label">
+                        E-mail
+                    </label>
+                    <input type="email" formControlName="email" class="form-control"
+                        placeholder="Please enter your email">
+                    <div class="errors-container"
+                        *ngIf="emailControl.invalid && (emailControl.touched) || emailControl.dirty">
+                        <p class="error-msg" *ngIf="emailControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                        <p class="error-msg" *ngIf="emailControl.hasError('email')" style="color: #bd0c0c">The field must be a valid email.</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <label class="form-label">
+                        Company
+                    </label>
+                    <input type="text" formControlName="company" class="form-control"
+                        placeholder="Please enter your Company">
+                    <div class="errors-container"
+                        *ngIf="CurpControl.invalid && (CurpControl.touched) || CurpControl.dirty">
+                        <p class="error-msg" *ngIf="CurpControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <label class="form-label">
+                        Cellphone Number
+                    </label>
+                    <input type="text" formControlName="phone" class="form-control"
+                        placeholder="Please enter your cellphone">
+                    <div class="errors-container"
+                        *ngIf="TelControl.invalid && (TelControl.touched) || TelControl.dirty">
+                        <p class="error-msg" *ngIf="TelControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="card">
+                        <button class="btn btn-dark" (click)="registerVisitor()" type="submit" [disabled]="ClientForm.invalid">
+                            Guardar y Agregar Usuario
+                        </button>
+                    </div>
+                </div>
+                <div class="container">
+                    <button mat-button class="a" routerLink="/CreateVisit">« Get back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+  <h2>Visitor</h2>
+  <h4>Create a new visitor</h4>
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <!-- Name -->
+        <div class="card-body">
+          <label class="form-label">Name</label>
+          <input
+            name="fname"
+            [(ngModel)]="visitorObj.fname"
+            class="form-control"
+            placeholder="Please enter your name"
+            required
+            #fname="ngModel"
+          />
+          <div class="errors-container" *ngIf="fname.invalid && (fname.touched || fname.dirty)">
+            <p class="error-msg" *ngIf="fname.hasError('required')" style="color: #bd0c0c">
+              The field must be required.
+            </p>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="card-body">
+          <label class="form-label">Last Name</label>
+          <input
+            name="lname"
+            [(ngModel)]="visitorObj.lname"
+            class="form-control"
+            placeholder="Please enter your last name"
+            required
+            #lname="ngModel"
+          />
+          <div class="errors-container" *ngIf="lname.invalid && (lname.touched || lname.dirty)">
+            <p class="error-msg" *ngIf="lname.hasError('required')" style="color: #bd0c0c">
+              The field must be required.
+            </p>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="card-body">
+          <label class="form-label">E-mail</label>
+          <input
+            name="email"
+            [(ngModel)]="visitorObj.email"
+            class="form-control"
+            type="email"
+            placeholder="Please enter your email"
+            required
+            email
+            #email="ngModel"
+          />
+          <div class="errors-container" *ngIf="email.invalid && (email.touched || email.dirty)">
+            <p class="error-msg" *ngIf="email.hasError('required')" style="color: #bd0c0c">
+              The field must be required.
+            </p>
+            <p class="error-msg" *ngIf="email.hasError('email')" style="color: #bd0c0c">
+              The field must be a valid email.
+            </p>
+          </div>
+        </div>
+
+        <!-- Company -->
+        <div class="card-body">
+          <label class="form-label">Company</label>
+          <input
+            name="company"
+            [(ngModel)]="visitorObj.company"
+            class="form-control"
+            placeholder="Please enter your company"
+            required
+            #company="ngModel"
+          />
+          <div class="errors-container" *ngIf="company.invalid && (company.touched || company.dirty)">
+            <p class="error-msg" *ngIf="company.hasError('required')" style="color: #bd0c0c">
+              The field must be required.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cellphone -->
+        <div class="card-body">
+          <label class="form-label">Cellphone Number</label>
+          <input
+            name="phone"
+            [(ngModel)]="visitorObj.phone"
+            class="form-control"
+            placeholder="Please enter your cellphone"
+            required
+            pattern="[0-9]{10}"
+            #phone="ngModel"
+          />
+          <div class="errors-container" *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+            <p class="error-msg" *ngIf="phone.hasError('required')" style="color: #bd0c0c">
+              The field must be required.
+            </p>
+            <p class="error-msg" *ngIf="phone.hasError('pattern')" style="color: #bd0c0c">
+              The phone number must be 10 digits.
+            </p>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="container">
+          <button class="btn btn-dark" (click)="registerVisitor()">
+            Save and Add User
+          </button>
+        </div>
+        <div class="container">
+          <button mat-button class="a" routerLink="/CreateVisit">« Get back</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

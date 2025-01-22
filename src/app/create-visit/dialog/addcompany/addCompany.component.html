@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Add Company</h1>
+<div mat-dialog-content>
+  <label for="company-name">Company Name</label>
+  <input id="company-name" type="text" [(ngModel)]="companyName" class="form-control" placeholder="Enter enterprise name" />
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button color="primary" [disabled]="!companyName" (click)="add()">Add</button>
+</div>

@@ -1,0 +1,21 @@
+
+.container {
+    padding: 20px;
+    height: calc(100% - 40px);
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.ag-theme-quartz{
+    --ag-row-hover-color: rgb(131, 131, 131);
+    --ag-header-background-color: rgb(107, 128, 197);
+}
+
+.question{
+    text-align: left;
+}

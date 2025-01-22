@@ -1,0 +1,34 @@
+
+
+<div class="container">
+  <h2>Check your visits</h2>
+
+  <mat-card>
+    <table mat-table [dataSource]="rowData" class="mat-elevation-z8">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Name }} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Email }} </td>
+      </ng-container>
+
+      <!-- Table Header and Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+
+  <div class="contenedor">
+    <h5 class="question">Do you want to create a visit?</h5>
+    <button mat-raised-button class="btn btn-dark" (click)="navCreateVisit()">
+      Create Visit
+    </button>
+  </div>
+
+</div>
