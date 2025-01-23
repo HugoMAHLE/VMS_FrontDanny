@@ -41,6 +41,6 @@ export class HostComponent {
   }
 
   navCreateVisit(){
-    this.router.navigate(["/menu/createvisit"]);
+    this.router.navigate(["/menu/create-visit"]);
   }
 }
