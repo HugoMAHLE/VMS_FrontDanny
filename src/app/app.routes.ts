@@ -37,15 +37,15 @@ export const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'createvisit',
+        path: 'create-visit',
         component: CreateVisitComponent
       },
       {
-        path: 'addvisitor',
+        path: 'add-visitor',
         component: AddVisitorComponent
       },
       {
-        path: 'createvisitor',
+        path: 'create-visitor',
         component: VisitorComponent
       }
     ]
