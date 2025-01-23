@@ -17,7 +17,6 @@ import { RecepEditComponent } from './recep-edit/recep-edit.component';
 import { VisitConfirmComponent } from './visit-confirm/visit-confirm.component';
 import { VideoVisitComponent } from './video-visit/video-visit.component';
 import { VisitErrorComponent } from './visit-error/visit-error.component';
-
 export const routes: Routes = [
   {
     path:'',
@@ -38,63 +37,33 @@ export const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'create-visit',
+        path: 'createvisit',
         component: CreateVisitComponent
       },
       {
-        path: 'add-visitor',
+        path: 'addvisitor',
         component: AddVisitorComponent
       },
       {
-        path: 'create-visitor',
+        path: 'createvisitor',
         component: VisitorComponent
       }
     ]
   },
   {
     path: 'reception',
-    component: ReceptionComponent,
-    children: [
-      {
-        path: 'confirm-edit',
-        component: ConfirmCasetaComponent
-      },
-      {
-        path: 'edit-reception',
-        component: RecepEditComponent
-      },
-      {
-        path: 'Print',
-        component: PrintComponent
-      }
-    ]
+    component: ReceptionComponent
   },
   {
     path: 'visitor',
-    component: VisitCodeComponent,
-    children: [
-      {
-        path: 'confirm-visit',
-        component: VisitConfirmComponent
-      },
-      {
-        path: 'video',
-        component: VideoVisitComponent
-      },
-      {
-        path: 'error',
-        component: VisitErrorComponent
-      }
-    ]
+    component: VisitCodeComponent
   },
   {
     path: 'security',
-    component: CasetaComponent,
-    children: [
-      {
-        path: 'confirm',
-        component: ConfirmCasetaComponent
-      }
-    ]
+    component: CasetaComponent
+  },
+  {
+    path: 'confirm-info',
+    component: VisitConfirmComponent
   }
 ];

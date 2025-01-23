@@ -1,15 +1,17 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { Router } from 'express';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-visit-confirm',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, MatButtonModule, RouterModule],
   templateUrl: './visit-confirm.component.html',
-  styleUrl: './visit-confirm.component.css'
+  styleUrls: ['./visit-confirm.component.css'],
 })
-export class VisitConfirmComponent implements OnInit {
+export class VisitConfirmComponent {
 
   router = inject(Router);
 
