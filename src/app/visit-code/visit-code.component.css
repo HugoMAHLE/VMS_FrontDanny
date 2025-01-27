@@ -5,7 +5,72 @@
 .division{
     padding-top: 50px;
     text-align: center;
-    
+
+}
+
+body {
+  background: url("/assets/bg1.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.card{
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.logoCol {
+  display: none;
+
+}
+
+@media (min-width: 768px) {
+  .logoCol {
+    display: block;
+    flex: 0 0 auto;
+    width: 41%; /* equivalent to col-md-6 */
+    align-content: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .logoCol {
+    width: 33%; /* equivalent to col-lg-5 */
+    align-self: auto;
+  }
+}
+
+.custom-form-field .mat-form-field-flex {
+  background-color: #f0f0f0 !important; /* Cambia el fondo */
+  color: #000 !important; /* Cambia el texto */
+}
+
+.custom-form-field .mat-form-field-infix {
+  background-color: #ffffff !important;
+  color: #333 !important;
+}
+
+.custom-form-field .mat-hint {
+  color: #148321; /* Change hint label color */
+}
+
+.custom-form-field input {
+  color: #ffffff; /* Change input text color */
+}
+
+.custom-form-field .mat-label {
+  color: #00c230; /* Change label color */
+}
+
+.custom-form-field .mat-form-field-underline {
+  background-color: #FF5733; /* Change underline color */
+}
+
+.custom-form-field .mat-form-field-ripple {
+  background-color: #ffffff; /* Change ripple color on focus */
 }
 
 .division2{
@@ -22,14 +87,6 @@
 .division3{
     padding-top: 50px;
     text-align: center;
-}
-
-.a{
-    background-color: rgb(3, 133, 3);
-    color: rgb(252, 252, 252);
-    border-radius: 5px;
-    border-color: rgb(3, 133, 3);
-    height: calc(10svh - 65px);
 }
 
 .division4{

@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { AddCompanyComponent } from './dialog/addcompany/addCompany.component';
+import { SuccessComponent } from './dialog/Success/success.component';
 import axios from 'axios';
 import { environment } from '../../environments/environment.development';
 import {  MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -222,8 +223,16 @@ export class CreateVisitComponent {
 
       if (response.data.ok) {
         console.log('Visit created successfully');
+
+        this.dialog.open(SuccessComponent, {
+          width: '400px',
+        });
+
         localStorage.removeItem('selectedVisitors');
         localStorage.removeItem('visitFormData');
+
+        const emailResponse = await axios.post(this.apiURL + 'visit/send-code', payload);
+        console.log(emailResponse);
 
       } else {
         console.error('Error adding company:', response.data.msg);

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { environment } from '../../environments/environment.development';
+import LocalStorage from '../localStorage';
 
 @Component({
   selector: 'app-visit-code',
@@ -41,7 +42,7 @@ export class VisitCodeComponent implements OnInit {
 
   logOff() {
     console.log('sesion terminada');
-    localStorage.removeItem('angular18Local');
+    LocalStorage.clearLocalStorage('login');
     alert('Sesión cerrada');
     this.router.navigate(['/login']);
   }
@@ -64,6 +65,8 @@ export class VisitCodeComponent implements OnInit {
       const visitInfo = response.data.msg;
       if (visitInfo) {
         alert('Code is valid! Proceeding...');
+
+        LocalStorage.saveToLocalStorage('visitInfo', visitInfo)
 
         this.router.navigate(['/confirm-info']);
       } else {

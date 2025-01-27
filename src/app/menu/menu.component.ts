@@ -8,6 +8,7 @@ import {MatListModule} from '@angular/material/list';
 import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import LocalStorage from '../localStorage';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class MenuComponent implements OnInit{
 
   logout(): void {
     // Remove token and user type from localStorage
-    localStorage.removeItem('angular18Local');
+    LocalStorage.clearLocalStorage('login');
     // Redirect to login page
     this.router.navigate(['/login']);
   }
