@@ -1,45 +1,33 @@
-
-    <div class="container">
-        <div class="visit">
-            <h1>Visitor</h1>
-        </div>
-        <div class="division">
-            <h2>Hi guest #</h2>
-            <h3>Welcome</h3>
-        </div>    
-        <div class="division2">
-            <h5>Please check that your information is correct.</h5>
-        </div>
-        <div class="card">
-            <div class="pad">
-                <mat-card class="example-card" appearance="outlined">
-                    <mat-card-header>
-                        <mat-card-title>Company name</mat-card-title>
-                        <mat-card-subtitle>MAHLE</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>
-                            Name:
-                        </p>
-                        <p>
-                            Last name:
-                        </p>
-                        <p>
-                            Phone:
-                        </p>
-                        <p>
-                            E-mail:
-                        </p>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-        </div>
-        <div class="info">
-            <h5>Is correct the information?</h5>
-            <div class="example-button-row">
-                <button mat-stroked-button class="btnNO" (click)="navNo()">No</button>
-                <button mat-flat-button class="btnYES" (click)="navYes()">Yes</button>
-            </div>
-        </div>
+<body>
+  <div class="blur-bg-overlay"></div>
+  <div class="container">
+  <div class="division">
+    <h2>Bienvenido {{ currentVisitor?.firstname }}</h2>
+  </div>
+  <div class="division2">
+    <h5>Por favor revisa tu informacion y confirma asistencia.</h5>
+  </div>
+  <div class="card">
+    <div class="pad">
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Informacion Personal:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Name: {{ currentVisitor?.firstname }}</p>
+          <p>Last name: {{ currentVisitor?.lastname }}</p>
+          <p>Phone: {{ currentVisitor?.phone }}</p>
+          <p>E-mail: {{ currentVisitor?.email }}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
-
+  </div>
+  <div class="info">
+    <h5>confirmar asistencia?</h5>
+    <div class="button-container">
+      <button mat-stroked-button class="btnNO" (click)="navNo()">No</button>
+      <button mat-flat-button class="btnYES" (click)="navYes()">Yes</button>
+    </div>
+  </div>
+</div>
+</body>

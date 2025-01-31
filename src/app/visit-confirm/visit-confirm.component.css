@@ -1,3 +1,25 @@
+body{
+  background: url("/assets/Images/bg5.jpg") center/cover no-repeat;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+h2, h5{
+  color: rgb(255, 255, 255) ;
+}
+
+.blur-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50; /* Ensure it is below the form */
+}
+
 .division {
     padding-top: 50px;
     text-align: center;
@@ -11,8 +33,20 @@
 }
 
 .container {
-    padding: 20px;
-    height: calc(80svh - 40px);
+  display: block; /* Ensure the form is displayed */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 10px; /* Optional: rounded corners */
+  padding: 20px; /* Optional: padding inside the container */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  z-index: 100;
+  opacity: 1;
+
 }
 
 .a {
@@ -39,7 +73,7 @@
 }
 
 .example-card {
-    max-width: 400px;
+    width: 100%;
     padding-left: 5px;
 }
 
@@ -49,26 +83,63 @@
     padding-left: 20px;
 }
 
+/* .example-card {
+  width: 100%;
+  max-width: none; /* Elimina el límite de ancho
+  height: 100%;  Ocupa toda la altura del contenedor
+  padding: 20px; /* Agrega espacio interno
+  font-size: 1.8rem; /* Tamaño de letra grande
+  text-align: center; /* Centra el texto
+}*/
+
+.mat-card-content p {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+
+.pad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ /* padding: 20px; */
+}
+
+.mat-card-title {
+  padding: 10px;
+  font-weight: bold;
+}
+
 .info {
     padding-top: 20px;
     text-align: right;
     padding-left: 10px;
 }
-.btnNO{
-    
-    color: rgb(236, 8, 8);
-    border-radius: 5px;
-    height: calc(10svh - 65px);
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 15px; /* Espacio entre los botones */
+  padding: 10px; /* Espaciado interno para que no queden pegados al borde */
 }
 
-.btnYES{
-    background-color: rgb(8, 155, 8);
-    color: white;
-    border-radius: 5px;
-    height: calc(10svh - 65px);
+.btnNO, .btnYES {
+  border: none;
+  border-radius: 5px;
+  height: calc(10svh - 40px); /* Aumenta el tamaño */
+  width: 150px; /* Anchura mayor para fácil toque */
+  font-size: 1.5rem; /* Texto más grande */
+  padding: 15px; /* Espacio interno mayor */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
 }
-.example-button-row {
-    display: table-cell;
-    max-width: 600px;
 
-  }
+.btnNO {
+  color: rgb(236, 8, 8);
+  border: 2px solid rgb(236, 8, 8); /* Para que resalte más */
+  background-color: white;
+}
+
+.btnYES {
+  background-color: rgb(8, 155, 8);
+  color: white;
+}

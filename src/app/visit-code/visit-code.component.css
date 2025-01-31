@@ -9,13 +9,22 @@
 }
 
 body {
-  background: url("/assets/bg1.jpeg") center/cover no-repeat;
+  background: url("/assets/Images/bg1.jpeg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   width: 100%;
   padding: 0 10px;
+}
+
+.upper{
+  background-color: rgb(237, 237, 237);
+}
+
+.btnnn{
+  background-color: rgb(30, 42, 99);
+  color: white;
 }
 
 .card{
@@ -31,6 +40,8 @@ body {
   .logoCol {
     display: block;
     flex: 0 0 auto;
+    background-image: url("/assets/Images/visit.jpg");
+    border-radius: 1rem 0 0 1rem;
     width: 41%; /* equivalent to col-md-6 */
     align-content: center;
   }
@@ -58,7 +69,7 @@ body {
 }
 
 .custom-form-field input {
-  color: #ffffff; /* Change input text color */
+  color: #070064; /* Change input text color */
 }
 
 .custom-form-field .mat-label {

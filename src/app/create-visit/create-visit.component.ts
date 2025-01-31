@@ -99,6 +99,7 @@ export class CreateVisitComponent {
         ent: visitData.checkInTime || '',
         reason: visitData.reasonForVisit || ''
       });
+      this.selectedCompany = visitData.companyName;
     }
 
     const storedVisitors = localStorage.getItem('selectedVisitors');
@@ -126,7 +127,7 @@ export class CreateVisitComponent {
   }
 
   createVisitor() {
-    this.router.navigate(['/menu/create-visitor']);
+    this.router.navigate(['menu/create-visitor']);
   }
 
   onEnterpriseSelect(selectedEnterprise: string) {
@@ -179,13 +180,15 @@ export class CreateVisitComponent {
   }
 
   async createVisit() {
-    const name = this.nameControl.value; // Extract the value from the control
+    let name = this.nameControl.value; // Extract the value from the control
+    if (name == '') {name = this.selectedCompany}
+    console.log(name)
     const reason = this.reasonControl.value;
     const date = this.dateControl.value;
     const entry = this.entControl.value;
     let uid = 0
 
-    const storedData = localStorage.getItem('angular18Local');
+    const storedData = localStorage.getItem('login');
     if (storedData) {
       try {
         const data = JSON.parse(storedData);
@@ -199,7 +202,7 @@ export class CreateVisitComponent {
         console.error('Error parsing localStorage data:', error);
       }
     } else {
-      console.warn('No data found in localStorage for key angular18Local');
+      console.warn('No data found in localStorage for key login');
     }
 
     const storedVisitors = localStorage.getItem('selectedVisitors');
@@ -219,7 +222,7 @@ export class CreateVisitComponent {
 
     try {
       const response = await axios.post(this.apiURL + 'visitor/createvisit', payload);
-      console.log(response);
+      console.log(response.data);
 
       if (response.data.ok) {
         console.log('Visit created successfully');
@@ -231,7 +234,8 @@ export class CreateVisitComponent {
         localStorage.removeItem('selectedVisitors');
         localStorage.removeItem('visitFormData');
 
-        const emailResponse = await axios.post(this.apiURL + 'visit/send-code', payload);
+        const code = response.data.msg
+        const emailResponse = await axios.post(this.apiURL + 'visit/send-code', { code });
         console.log(emailResponse);
 
       } else {

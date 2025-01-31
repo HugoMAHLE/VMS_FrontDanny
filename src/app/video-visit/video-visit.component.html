@@ -1,13 +1,50 @@
-<p>video-visit works!</p><div class="title">
-    <h1>Visitor</h1>
+<!-- <body>
+  <mat-toolbar class="upper">
+    <img src="https://logodownload.org/wp-content/uploads/2024/04/mahle-logo.png" width="190" height="50" class="d-inline-block align-text-top">
+    <span class="example-spacer"></span>
+    <button mat-fab extended class="btnnn" (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+      Log-out
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <div class="separator">
+      <mat-card appearance="outlined" class="separator">
+        <mat-card-content class="video">
+          <video #videoPlayer class="video-player" controls (ended)="onVideoEnd()">
+          <source [src]="videoSrc" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        </mat-card-content>
+      </mat-card>
+      <p>el video cerrara automaticamente al finalizar</p>
+    </div>
   </div>
-  <div class="separator">
-  <mat-card appearance="outlined" class="separator">
-    <mat-card-header>
-      <mat-card-title>Up next the welcome video, the page will close when the video is over.</mat-card-title> 
-    </mat-card-header>
-    <mat-card-content>
-      Simple card
-    </mat-card-content>
-  </mat-card>
+</body> -->
+
+
+<body>
+  <mat-toolbar class="upper">
+    <img src="https://logodownload.org/wp-content/uploads/2024/04/mahle-logo.png" width="190" height="50" class="d-inline-block align-text-top">
+    <span class="example-spacer"></span>
+    <button mat-fab extended class="btnnn" (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+      Log-out
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <div class="separator">
+      <mat-card appearance="outlined" class="separator">
+        <mat-card-content class="video">
+          <video #videoPlayer class="video-player" controls (ended)="onVideoEnd()">
+            <source [src]="videoSrc" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </mat-card-content>
+      </mat-card>
+      <p>el video cerrara automaticamente al finalizar</p>
+    </div>
   </div>
+</body>

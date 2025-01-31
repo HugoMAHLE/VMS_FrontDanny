@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, signal, inject } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import axios from 'axios';
 import { environment } from '../../environments/environment.development';
 import LocalStorage from '../localStorage';
+import { KeyboardService } from '../services/keyboard.service';
 
 @Component({
   selector: 'app-visit-code',
@@ -29,22 +30,45 @@ import LocalStorage from '../localStorage';
   templateUrl: './visit-code.component.html',
   styleUrls: ['./visit-code.component.css']
 })
+
 export class VisitCodeComponent implements OnInit {
   protected readonly value = signal('');
   router = inject(Router);
   api_URL = environment.api_URL;
 
+  constructor(private keyboardService: KeyboardService) {}
+
   protected onInput(event: Event) {
     this.value.set((event.target as HTMLInputElement).value);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    // Call this method after the view is initialized
+    this.keyboardService.createKeyboard();
+  }
 
   logOff() {
     console.log('sesion terminada');
     LocalStorage.clearLocalStorage('login');
     alert('Sesión cerrada');
     this.router.navigate(['/login']);
+  }
+
+  openKeyboard() {
+    console.log("keyboard called");
+    if (!this.keyboardService.isKeyboardCreated()) {
+      this.keyboardService.createKeyboard();
+    }
+    setTimeout(() => {
+      this.keyboardService.showKeyboard();
+    }, 100); // Small delay to ensure the keyboard is ready
+  }
+
+  closeKeyboard() {
+    this.keyboardService.hideKeyboard();
   }
 
   async navConfirm() {
@@ -64,7 +88,7 @@ export class VisitCodeComponent implements OnInit {
       const response = await axios.get(`${this.api_URL}visit/get-visit-info?code=${visitCode}`);
       const visitInfo = response.data.msg;
       if (visitInfo) {
-        alert('Code is valid! Proceeding...');
+        //alert('Code is valid! Proceeding...');
 
         LocalStorage.saveToLocalStorage('visitInfo', visitInfo)
 

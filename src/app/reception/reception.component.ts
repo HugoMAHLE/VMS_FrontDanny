@@ -15,7 +15,7 @@ router = inject(Router);
 
 logOff() {
   console.log("sesion terminada");
-  localStorage.removeItem("angular18Local");
+  localStorage.removeItem("login");
   alert("Sesión cerrada");
   this.router.navigate(['/login']);
 }

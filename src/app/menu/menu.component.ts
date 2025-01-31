@@ -53,7 +53,7 @@ export class MenuComponent implements OnInit{
   }
 
   navVisitor() : void{
-    this.router.navigate(['menu/create-visitor'])
+    this.router.navigate(['menu/create-visitor']);
   }
 
   ngOnInit(): void{

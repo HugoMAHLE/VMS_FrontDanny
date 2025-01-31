@@ -11,22 +11,43 @@
     padding-bottom: 9px;
 }
 
-.a{
-    background-color: rgb(3, 133, 3);
-    color: rgb(252, 252, 252);
-    border-radius: 5px;
-    border-color: rgb(3, 133, 3);
-    height: 10%;
+.division {
+  text-align: right;
+  margin-top: 20px; /* Adds spacing above the buttons */
+  margin-bottom: 20px; /* Adds spacing below the buttons */
 }
 
-.b{
-    background-color: rgb(7, 162, 209);
-    color: rgb(252, 252, 252);
-    border-radius: 5px;
-    border-color: rgb(7, 162, 209);
-    height: 10%;
+.division div {
+  display: flex;
+  gap: 15px; /* Adds spacing between the buttons */
+  justify-content: flex-end; /* Ensures they stay aligned to the right */
 }
 
-.division{
-    padding-bottom: 10px;
+.a, .b {
+  background-color: #c6d6e3;
+  color: #ededed;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px; /* Makes buttons more visually balanced */
+  height: auto; /* Prevents height issues */
+}
+
+.header {
+  display: flex;
+  align-items: center;  /* Centers text vertically */
+  justify-content: flex-start;  /* Aligns text to the left */
+  padding-left: 20px;  /* Moves text away from the edge */
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  border-radius: 5px; /* Optional: rounded corners */
+  height: 60px;  /* Adjust height as needed */
+  margin-bottom: 20px; /* Creates space between header and other content */
+}
+
+.header h2 {
+  margin: 0;  /* Removes default margin */
+  padding: 0; /* Ensures no extra padding */
+  line-height: 1; /* Adjusts text height */
 }

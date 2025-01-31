@@ -1,3 +1,51 @@
+body {
+  background: url("/assets/Images/bg1.jpeg") center/cover no-repeat;
+}
+
+.container {
+  padding: 20px;
+  height: calc(80svh - 40px);
+  justify-content: center;
+}
+
 .separator{
-    padding: 50px;
+  padding: 20px;
+  background-color: rgb(198, 214, 227);
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.title{
+  text-align: center;
+  color: rgb(198, 214, 227);
+}
+
+.video {
+  padding-top: 50px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.video-player {
+  width: 100%;  /* Make the video take the full width of its container */
+  height: auto;  /* Maintain aspect ratio */
+  max-height: 80vh; /* Prevent it from being too tall */
+  border-radius: 10px; /* Optional: Rounded corners */
+}
+
+
+.example-spacer {
+  flex-grow: 1;
+}
+
+.upper{
+  background-color: rgb(237, 237, 237);
+}
+
+.btnnn{
+  background-color: rgb(30, 42, 99);
+  color: white;
+  position: relative;
 }

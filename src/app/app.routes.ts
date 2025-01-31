@@ -65,5 +65,9 @@ export const routes: Routes = [
   {
     path: 'confirm-info',
     component: VisitConfirmComponent
+  },
+  {
+    path: 'video',
+    component: VideoVisitComponent
   }
 ];

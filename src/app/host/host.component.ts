@@ -4,6 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { environment } from '../../environments/environment.development';
+import { MatTableDataSource } from '@angular/material/table';
 import axios from 'axios';
 
 @Component({
@@ -17,11 +18,11 @@ export class HostComponent {
   router = inject(Router);
   apiURL = environment.api_URL;
 
-  rowData: any[] = [];
-  displayedColumns: string[] = ['Name', 'Email'];
+  displayedColumns: string[] = ['Date', 'Time', 'Company', 'Guests'];
+  dataSource = new MatTableDataSource<any>();
 
   ngOnInit() {
-    const storedData = localStorage.getItem("angular18Local");
+    const storedData = localStorage.getItem("login");
     if (storedData) {
       const localArray = JSON.parse(storedData);
       const tokenData = localArray[localArray.length - 1];
@@ -31,12 +32,19 @@ export class HostComponent {
     }
   }
 
-  async fetchTableData(user: any) {
+  async fetchTableData(userid: any) {
     try {
-      const response = await axios.get(this.apiURL + "host/getVisit", { params: {user} });
-      this.rowData = response.data;
+      const response = await axios.get(this.apiURL + "users/get-host-visits", { params: { userid } });
+
+      if (Array.isArray(response.data)) {
+        this.dataSource.data = response.data; // Asigna los datos al dataSource
+      } else {
+        console.error('Expected an array but got:', response.data);
+        this.dataSource.data = [];
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
+      this.dataSource.data = [];
     }
   }
 
@@ -44,3 +52,5 @@ export class HostComponent {
     this.router.navigate(["/menu/create-visit"]);
   }
 }
+
+
