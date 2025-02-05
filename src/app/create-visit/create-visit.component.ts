@@ -181,7 +181,7 @@ export class CreateVisitComponent {
 
   async createVisit() {
     let name = this.nameControl.value; // Extract the value from the control
-    if (name == '') {name = this.selectedCompany}
+    if (name === '') {name = this.selectedCompany}
     console.log(name)
     const reason = this.reasonControl.value;
     const date = this.dateControl.value;

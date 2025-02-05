@@ -12,6 +12,7 @@ import axios from 'axios';
 import { environment } from '../../environments/environment.development';
 import LocalStorage from '../localStorage';
 import { KeyboardService } from '../services/keyboard.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-visit-code',
@@ -25,7 +26,7 @@ import { KeyboardService } from '../services/keyboard.service';
     MatFormField,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './visit-code.component.html',
   styleUrls: ['./visit-code.component.css']
@@ -73,9 +74,11 @@ export class VisitCodeComponent implements OnInit {
 
   async navConfirm() {
     const visitCode = this.value();
+    console.log(visitCode);
 
     if (!visitCode || visitCode.trim() === '' || visitCode.length < 10) {
       alert('Please enter a valid visit code before submitting.');
+
       return;
     }
 
@@ -100,5 +103,11 @@ export class VisitCodeComponent implements OnInit {
       console.error('Error verifying the visit code:', error);
       alert('An error occurred while verifying the code. Please try again later.');
     }
+  }
+
+  onSubmit(event: Event) {
+    event.preventDefault(); // Stops form submission
+    event.stopPropagation(); // Stops event bubbling
+    this.navConfirm(); // Your existing function
   }
 }

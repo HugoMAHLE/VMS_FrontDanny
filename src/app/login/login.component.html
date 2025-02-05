@@ -24,6 +24,7 @@
                 <!-- field for employee number -->
                 <div class="input-field">
                   <input
+                    (keyup.enter)="onLogin()"
                     name="userID"
                     [(ngModel)]="userObj.userID"
                     type="text"
@@ -68,6 +69,7 @@
                 <!-- password field -->
                 <div class="input-field">
                   <input
+                    (keyup.enter)="onLogin()"
                     name="pass"
                     [(ngModel)]="userObj.pass"
                     type="password"

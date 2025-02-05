@@ -1,5 +1,5 @@
 <mat-toolbar class="upper">
-  <img src="https://logodownload.org/wp-content/uploads/2024/04/mahle-logo.png" width="190" height="50" class="d-inline-block align-text-top">
+  <div class="logo"></div>
   <span class="example-spacer"></span>
   <!-- <button mat-fab extended class="btnnn" (click)="logOff()">
       <mat-icon>logout</mat-icon>
@@ -20,34 +20,41 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
 
-                  <form>
-                    <div class="d-flex align-items-center mb-3 pb-1">
-                      <i class="fas fa-cubes fa-2x me-3" style="color: #191b86f4;"></i>
-                      <span class="h1 fw-bold mb-0">Bienvenidos a MAHLE</span>
+                  <form class="rightSideForm" (ngSubmit)="onSubmit($event)" (submit)="onSubmit($event)">
+                    <div class="welcome">
+                      <h1>Bienvenidos a </h1>
                     </div>
+                    <div class="logoJRZ"></div>
 
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Por favor ingrese su codigo de visita</h5>
 
                     <div data-mdb-input-init class="form-outline mb-4">
                       <mat-form-field class="custom-form-field" hintLabel="Max 10 characters">
                         <mat-label>Codigo</mat-label>
-                          <input matInput #input maxlength="10" (focus)="openKeyboard()" placeholder="Ej. 2020020304"
-                          (input)="onInput($event)" inputmode="numeric" pattern="[0-9]*" type="tel" />
+                          <input matInput #input maxlength="10"
+                            (focus)="openKeyboard()"
+                            (keyup.enter)="$event.preventDefault(); $event.stopPropagation(); navConfirm()"
+                            (input)="onInput($event)"
+                            placeholder="Ej. 2020020304"
+                            inputmode="numeric"
+                            autocomplete="one-time-code"
+                            pattern="[0-9]*"
+                            type="tel"
+                          />
                         <mat-hint align="end">{{ value().length }}/10</mat-hint>
                       </mat-form-field>
                     </div>
 
                     <!-- <button (click)="closeKeyboard()">Close Keyboard</button> -->
 
-                    <div class="pt-1 mb-4">
+                    <div class="button-container">
                       <button data-mdb-button-init data-mdb-ripple-init
-                        class="btn btn-dark btn-lg btn-block" type="button" (click)="navConfirm()">
+                        class="submit-btn" type="button" (click)="navConfirm()">
                         Entrar
                       </button>
                     </div>
 
-                    <a href="#!" class="small text-muted">MAHLE </a>
-                    <a href="#!" class="small text-muted">Mexico</a>
+                    <a href="#!" class="small text-muted">MAHLE Mexico</a>
                   </form>
 
                 </div>

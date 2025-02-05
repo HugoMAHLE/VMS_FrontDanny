@@ -1,36 +1,78 @@
 .title{
-    padding-top: 50px;
-    text-align: center;
-    padding-bottom: 50px;
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+body{
+  background: url("/assets/Images/bg4.jpg") center/cover no-repeat;
+}
+
+.logo {
+  width: 180px;  /* Set the same width as your image */
+  height: 70px;  /* Set the same height as your image */
+  background-image: url("/assets/Images/logo.png");
+  background-size: contain; /* Ensures the image fits within the div */
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .separator{
-    padding-top: 50px;
-    padding-left: 100px;
-    padding-bottom: 100px;
-    padding-right: 100px;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-bottom: 100px;
+  padding-right: 100px;
 }
 
 .today{
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
 
 .cards{
-    width: 20%;
-    margin-bottom: 8px;
-    padding-left: 20px;
-    padding-top: 10px;
-    float: left;
-    padding-right: 8px;
-    margin-left: 6%;
-    margin-right: 7%;
+  width: 20%;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  padding-top: 10px;
+  float: left;
+  padding-right: 8px;
+  margin-left: 6%;
+  margin-right: 7%;
+  background-color: rgb(200, 201, 199);
+  border-radius: 5px;
 }
 
 .principal{
-    max-width: 2000px;
+  max-width: 2000px;
+  background-color: rgb(65, 182, 230);
+}
+
+.example-spacer{
+  flex: 1 0 auto;
+}
+
+.upper{
+  background-color: rgb(1, 24, 65);
+}
+
+.btnnn{
+  background-color: rgb(5, 0, 49);
+  color: #ededed;
+}
+
+.container{
+  background-color: rgb(198, 214, 227);
+  border-radius: 5px;
+}
+
+.See{
+  color: black;
+}
+
+.subtitle{
+  color: black;
 }

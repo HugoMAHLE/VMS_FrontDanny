@@ -34,17 +34,19 @@ export class HostComponent {
 
   async fetchTableData(userid: any) {
     try {
-      const response = await axios.get(this.apiURL + "users/get-host-visits", { params: { userid } });
+        if (!userid) throw new Error("User ID is required");
 
-      if (Array.isArray(response.data)) {
-        this.dataSource.data = response.data; // Asigna los datos al dataSource
-      } else {
-        console.error('Expected an array but got:', response.data);
-        this.dataSource.data = [];
-      }
+        const response = await axios.get(`${this.apiURL}users/get-host-visits`, { params: { userid } });
+
+        if (Array.isArray(response.data)) {
+            this.dataSource.data = response.data; // Asigna los datos al dataSource
+        } else {
+            console.error("Expected an array but got:", response.data);
+            this.dataSource.data = [];
+        }
     } catch (error) {
-      console.error('Error fetching data:', error);
-      this.dataSource.data = [];
+        console.error("Error fetching data:", error);
+        this.dataSource.data = [];
     }
   }
 

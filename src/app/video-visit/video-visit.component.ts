@@ -50,7 +50,7 @@ export class VideoVisitComponent implements OnInit {
   }
 
   startVideo(): void {
-    this.videoSrc = this.privacyVideoSrc;
+    this.videoSrc = this.securityVideoSrc;
 
     this.cdr.detectChanges();
 

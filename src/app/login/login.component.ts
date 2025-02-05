@@ -47,6 +47,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  keyEnterPress(data : string, evt : KeyboardEvent){
+
+  }
+
   // Login function
   async onLogin(): Promise<void> {
     const { userID, pass } = this.userObj;
