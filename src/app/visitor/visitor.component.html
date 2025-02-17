@@ -5,10 +5,28 @@
   <div class="card">
     <div class="card-body">
       <form>
+        <!-- Type of visitors -->
+        <div class="card-body" [formGroup]="newVisitorForm">
+          <label class="form-label">Please enter the type of visitor</label>
+          <div class="d-flex align-items-center">
+            <mat-form-field appearance="fill" class="flex-grow-1">
+              <mat-label class="types">Select the type of visitor who will come</mat-label>
+              <mat-select [formControl]="VisitorControl" required>
+                <mat-option>--</mat-option>
+                @for(visitor of visitors; track visitor){
+                  <mat-option [value]="visitor">{{visitor.type}}</mat-option>
+                }
+              </mat-select>
+              @if (VisitorControl.hasError('required')){
+                <mat-error>Please choose a type</mat-error>
+              }
+            </mat-form-field>
+          </div>
+        </div>
         <!-- Name -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the Name of yout Visitor
+            Please enter the Name of your Visitor
           </label>
           <input type="fname" formControlName="fname" class="form-control" placeholder='Ex. "Peter"'>
           <div class="errors-container"
@@ -20,7 +38,7 @@
         <!-- Last Name -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the last name of yout Visitor
+            Please enter the last name of your Visitor
           </label>
           <input type="lname" formControlName="lname" class="form-control" placeholder='Ex. "Parker"'>
           <div class="errors-container"
@@ -32,7 +50,7 @@
         <!-- Email -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the last name of yout Visitor
+            Please enter the E-mail of your Visitor
           </label>
           <input type="email" formControlName="email" class="form-control" placeholder='Ex. "spider.man@dailybugle.com"'>
           <div class="errors-container"
@@ -44,7 +62,7 @@
         <!-- Cellphone -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the last name of yout Visitor
+            Please enter the phone number of your Visitor
           </label>
           <input type="phone" formControlName="phone" class="form-control" placeholder='Ex. "+19151234567"'>
           <div class="errors-container"
@@ -84,7 +102,7 @@
           </button>
         </div>
         <div class="container">
-          <button mat-button class="a" routerLink="/CreateVisit">« Get back</button>
+          <button mat-button class="a" (click)="navCreate()">« Get back</button>
         </div>
       </form>
     </div>

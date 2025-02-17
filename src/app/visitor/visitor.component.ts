@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { NgIf, NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import axios from 'axios';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,7 +14,11 @@ import { environment } from '../../environments/environment.development';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddCompanyComponent } from '../create-visit/dialog/addcompany/addCompany.component';
+import { MatSelectModule } from '@angular/material/select';
 
+interface Visitor{
+  type: string;
+}
 
 @Component({
   selector: 'app-visitor',
@@ -32,7 +36,7 @@ import { AddCompanyComponent } from '../create-visit/dialog/addcompany/addCompan
     MatSidenavModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    RouterLink,
+    MatSelectModule,
   ]
 })
 
@@ -40,6 +44,7 @@ export class VisitorComponent {
   apiURL = environment.api_URL;
   enterprises: string[] = [];
   selectedCompany: string = '';
+  router = inject(Router);
 
   constructor(private dialog: MatDialog) {}
 
@@ -50,6 +55,17 @@ export class VisitorComponent {
     phone: '',
     company: ''
   };
+
+  VisitorControl = new FormControl<Visitor | null> (null, Validators.required);
+  selectFormControl = new FormControl ('', Validators.required)
+
+  visitors: Visitor[] = [
+    {type: 'New hire'},
+    {type: 'Interplants'},
+    {type: 'Suppliers'},
+    {type: 'Clients'},
+    {type: 'New intern'}
+  ]
 
   newVisitorForm = new FormGroup({
     fname: new FormControl('', Validators.required),
@@ -142,5 +158,9 @@ export class VisitorComponent {
         window.location.reload();
       }
     });
+  }
+
+  navCreate(){
+    this.router.navigate(['menu/create-visit'])
   }
 }

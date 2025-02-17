@@ -46,3 +46,15 @@ mat-divider{
 .card-body {
   overflow: visible;
 }
+
+.types{
+  color: rgb(255, 255, 255);
+}
+
+.types :active{
+  color: white;
+}
+
+flex-grow-1 :root{ 
+  background-color: white;
+}
