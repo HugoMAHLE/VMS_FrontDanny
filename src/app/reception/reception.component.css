@@ -33,8 +33,9 @@ body{
   background-size: cover;
 }
 
-.cards{
+.card{
   width: 20%;
+  margin-top: 10px;
   margin-bottom: 8px;
   padding-left: 20px;
   padding-top: 10px;
@@ -44,11 +45,13 @@ body{
   margin-right: 7%;
   background-color: rgb(200, 201, 199);
   border-radius: 5px;
+  padding-bottom: 5px;
 }
 
 .principal{
   max-width: 2000px;
-  background-color: rgb(65, 182, 230);
+  background-color: rgb(255, 255, 255, 0.35);
+  margin-top: 10px;
 }
 
 .example-spacer{
@@ -75,4 +78,31 @@ body{
 
 .subtitle{
   color: black;
+}
+
+.cards {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btnEjemplo{
+  border-radius: 5px;
+  background-color: rgb(8, 189, 8);
+  color: black;
+  
+}
+
+.btnEjemplo:hover{
+  outline: 1px solid rgb(243, 208, 62);
+}
+
+.btnEjemplo:active{
+  outline: 1px solid rgb(142, 58, 128);
+}
+
+.header{
+  align-items: center;
 }
