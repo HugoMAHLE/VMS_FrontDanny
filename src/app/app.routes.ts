@@ -17,6 +17,7 @@ import { RecepEditComponent } from './recep-edit/recep-edit.component';
 import { VisitConfirmComponent } from './visit-confirm/visit-confirm.component';
 import { VideoVisitComponent } from './video-visit/video-visit.component';
 import { VisitErrorComponent } from './visit-error/visit-error.component';
+import { RecVisitsComponent } from './rec-visits/rec-visits.component';
 export const routes: Routes = [
   {
     path:'',
@@ -52,7 +53,13 @@ export const routes: Routes = [
   },
   {
     path: 'reception',
-    component: ReceptionComponent
+    component: ReceptionComponent,
+    children: [
+      {
+        path: 'RecVisits',
+        component: RecVisitsComponent
+      }
+    ]
   },
   {
     path: 'visitor',

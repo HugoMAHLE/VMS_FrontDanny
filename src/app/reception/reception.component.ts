@@ -10,7 +10,7 @@ import { NgFor, NgIf } from '@angular/common';
 @Component({
   selector: 'app-reception',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatToolbarModule, NgIf, NgFor],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, MatToolbarModule, NgFor],
   templateUrl: './reception.component.html',
   styleUrl: './reception.component.css'
 })
@@ -30,23 +30,42 @@ navConfirmCaseta(){
   this.router.navigate(["/security/confirm"]);
 }
 
-cards1 : string[] = [];
-cards3 : string[] = [];
-cards4 : string[] = [];
+cards1 : {title: string, subtitle: string, hour: string, date: string}[] = [];
+cards3 : {title: string, subtitle: string, hour: string, date: string}[] = [];
+cards4 : {title: string, subtitle: string, hour: string, date: string}[] = [];
 
 AddCard(){
-  const newCard = `Carta ${this.cards1.length + 1}`;
+  const newCard = {
+    title: `Company ${this.cards1.length + 1}`,
+    subtitle: `# guests`,
+    hour: `10:30 A.M` ,
+    date: `25/11/2024`
+  }
   this.cards1.push(newCard);
 }
 
 AddCard3(){
-  const newCard = `Carta ${this.cards3.length + 1}`;
+  const newCard = {
+    title: `Company ${this.cards3.length + 1}`,
+    subtitle: `# guests`,
+    hour: `10:30 A.M` ,
+    date: `25/11/2024`
+  }
   this.cards3.push(newCard);
 }
 
 AddCard4(){
-  const newCard = `Carta ${this.cards4.length + 1}`;
+  const newCard = {
+    title: `Company ${this.cards4.length + 1}`,
+    subtitle: `# guests`,
+    hour: `10:30 A.M` ,
+    date: `25/11/2024`
+  }
   this.cards4.push(newCard);
+}
+
+navDetails(){
+  this.router.navigate(['reception/recVisits']);
 }
 
 }

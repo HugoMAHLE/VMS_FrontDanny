@@ -43,7 +43,7 @@ body{
   padding-right: 8px;
   margin-left: 6%;
   margin-right: 7%;
-  background-color: rgb(200, 201, 199);
+  background-color: rgb(200, 201, 199, 25%);
   border-radius: 5px;
   padding-bottom: 5px;
 }
@@ -73,19 +73,15 @@ body{
 }
 
 .See{
-  color: black;
+  background-color: rgb(198, 214, 227);
+  width: 100px;
+  border-radius: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 10px;
 }
 
 .subtitle{
   color: black;
-}
-
-.cards {
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 8px 0;
-  border-radius: 8px;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btnEjemplo{
@@ -104,5 +100,19 @@ body{
 }
 
 .header{
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.btnSee{
+  text-align: end;
+}
+
+.Progress{
+  color: rgb(243, 208, 62);
+}
+
+.Pending{
+  color: rgb(67, 176, 42);
 }
