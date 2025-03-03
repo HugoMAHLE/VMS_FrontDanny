@@ -10,19 +10,19 @@ export interface TableCompany{
   email: string
 }
 
+export interface TableData{
+  Name: string
+  LName: string
+  Email: string
+  Phone: string
+}
+
 const ELEMENT_DATA: TableCompany[] = [
   {CName: 'Daniel', email: 'daniel.a.tellez@mahle.com'},
   {CName: 'Daniel', email: 'daniel.a.tellez@mahle.com'},
   {CName: 'Daniel', email: 'daniel.a.tellez@mahle.com'}
 
 ]
-
-export interface TableVisitors{
-  Name: string
-  LName: string
-  Email: string
-  Phone: string
-}
 
 @Component({
   selector: 'app-edit-visit',
@@ -52,7 +52,5 @@ export class EditVisitComponent {
     displayedColumns : string[] = ['CName','email', 'Action']
     dataSource = new MatTableDataSource<TableCompany>(ELEMENT_DATA);
     selection = new SelectionModel<TableCompany>(true, []);
-    
-    ColumnsToDisplay : string[] = ['Name','LName','Email','Phone']
 
 }

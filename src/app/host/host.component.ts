@@ -18,7 +18,7 @@ export class HostComponent {
   router = inject(Router);
   apiURL = environment.api_URL;
 
-  displayedColumns: string[] = ['Date', 'Time', 'Company', 'Guests'];
+  displayedColumns: string[] = ['Date', 'Time', 'Company', 'Guests', 'Schedule'];
   dataSource = new MatTableDataSource<any>();
 
   ngOnInit() {

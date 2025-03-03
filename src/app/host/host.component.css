@@ -21,7 +21,7 @@
 }
 
 .header {
-  display: flex;
+  text-align: center;
   align-items: center;  /* Centers text vertically */
   justify-content: flex-start;  /* Aligns text to the left */
   padding-left: 20px;  /* Moves text away from the edge */
@@ -32,4 +32,8 @@
   border-radius: 8px; /* Optional: rounded corners */
   height: 60px;  /* Adjust height as needed */
   margin-bottom: 20px; /* Creates space between header and other content */
+}
+
+.CreateVisit:hover{
+    background-color: rgb(0, 0, 0,0.8);
 }

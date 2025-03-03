@@ -9,12 +9,14 @@ import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import LocalStorage from '../localStorage';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
+    MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -36,10 +38,10 @@ export class MenuComponent implements OnInit{
 
   }
 
-  logout(): void {
-    // Remove token and user type from localStorage
+  logOff() {
+    console.log('sesion terminada');
     LocalStorage.clearLocalStorage('login');
-    // Redirect to login page
+    alert('Sesión cerrada');
     this.router.navigate(['/login']);
   }
 
@@ -54,6 +56,14 @@ export class MenuComponent implements OnInit{
 
   navVisitor() : void{
     this.router.navigate(['menu/create-visitor']);
+  }
+
+  navEditVisitor() : void{
+    this.router.navigate(['menu/edit-visitor'])
+  }
+
+  navEditVisit() : void{
+    this.router.navigate(['menu/edit-visit'])
   }
 
   ngOnInit(): void{

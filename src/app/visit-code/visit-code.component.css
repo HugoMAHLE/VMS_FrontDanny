@@ -5,6 +5,13 @@
   height: 64px;
 }
 
+.example-spacer{
+  flex: 1 0 auto;
+}
+
+.btnnn{
+  background-color: rgba(205,205,205,255);
+}
 /* Main Layout Structure */
 body {
   background: url("/assets/Images/bg1.jpeg") center/cover no-repeat;

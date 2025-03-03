@@ -1,6 +1,13 @@
 .container {
     padding: 20px;
     height: calc(100% - 40px);
+    text-align: center;
+    
+}
+
+.header{
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect */
 }
 
 .ng-touched.ng-invalid:is(input,textarea), .ng-dirty.ng-invalid:is(input, textarea){
@@ -31,6 +38,30 @@
     padding-bottom: 9px;
 }
 
+.select{
+    background-color: rgb(7, 162, 209);
+    border-radius: 10px;
+    border-color: rgb(7, 162, 209);
+    margin-right: 5px;
+    color: white;
+}
+
+.delete{
+    background-color: rgb(186, 12, 47);
+    border-radius: 10px;
+    border-color: rgb(186, 12, 47);
+    margin-left: 5px;
+    color: white;
+}
+
 .btnn{
     padding-left: 5px;
+}
+
+.card{
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+.action{
+    align-items: end;
 }

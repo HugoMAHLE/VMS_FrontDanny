@@ -1,1 +1,69 @@
-<p>edit-visitor works!</p>
+<div class="container">
+    <div class="header">
+        <h2 class="visitor">Edit or delete a visitor</h2>
+    </div>
+    <div class="card">
+        <!--FALTA PONER LA TABLA PARA PODER SELECCIONAR LOS VISITANTES-->
+        <div class="card-body">
+            <form>
+                <!-- Name -->
+                <div class="card-body" [formGroup]="AddVisitorForm">
+                    <label class="form-label">
+                        Please enter the name of your visitor
+                    </label>
+                    <input type="fname" formControlName="fname" class="form-control" placeholder='Ex. "Peter"'>
+                    <div class="errors-container"
+                        *ngIf="fnameControl.invalid && (fnameControl.touched) || fnameControl.dirty">
+                        <p class="error-msg" *ngIf="fnameControl.hasError('required')" style="color: #bd0c0c;">The field
+                            must be required.</p>
+                    </div>
+                </div>
+                <!-- Last name -->
+                <div class="card-body" [formGroup]="AddVisitorForm">
+                    <label class="form-label">
+                        Please enter the last name of your visitor
+                    </label>
+                    <input type="fname" formControlName="lname" class="form-control" placeholder='Ex. "Parker"'>
+                    <div class="errors-container"
+                        *ngIf="lnameControl.invalid && (lnameControl.touched) || lnameControl.dirty">
+                        <p class="error-msg" *ngIf="lnameControl.hasError('required')" style="color: #bd0c0c;">The field
+                            must be required.</p>
+                    </div>
+                </div>
+                <!-- E-mail -->
+                <div class="card-body" [formGroup]="AddVisitorForm">
+                    <label class="form-label">
+                        Please enter the E-mail of your visitor
+                    </label>
+                    <input type="email" formControlName="email" class="form-control"
+                        placeholder='Ex. "user@mahle.com"'>
+                    <p class="error-msg" *ngIf="emailControl.hasError('email') && !emailControl.hasError('required')"
+                        style="color: #bd0c0c;">Please enter a valid email address</p>
+                    <div class="errors-container"
+                        *ngIf="emailControl.invalid && (emailControl.touched) || emailControl.dirty">
+                        <p class="error-msg" *ngIf="emailControl.hasError('required')" style="color: #bd0c0c;">E-mail is
+                            required.</p>
+                    </div>
+                </div>
+                <!-- Cellphone -->
+                <div class="card-body" [formGroup]="AddVisitorForm">
+                    <label class="form-label">
+                        Please enter the phone number of your visitor
+                    </label>
+                    <input type="phone" formControlName="phone" class="form-control" placeholder='Ex. "656-555-5555"'>
+                    <div class="errors-container"
+                        *ngIf="phoneControl.invalid && (phoneControl.touched) || phoneControl.dirty">
+                        <p class="error-msg" *ngIf="phoneControl.hasError('required')" style="color: #bd0c0c;">The field
+                            must be required.</p>
+                    </div>
+                </div>
+                <!-- Buttons -->
+                <div class="buttons">
+                        <button mat-button class="a">Get back</button>
+                        <button mat-button class="center" (click)="openDialog()">Delete visitor</button>
+                        <button mat-button class="Confirm">Confirm changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <div class="header">
     <h2>Check your visits</h2>
@@ -25,10 +23,16 @@
         <td mat-cell *matCellDef="let element"> {{ element.company }} </td>
       </ng-container>
 
-      <!-- Company Column -->
+      <!-- Guest Column -->
       <ng-container matColumnDef="Guests">
         <th mat-header-cell *matHeaderCellDef> Guests </th>
         <td mat-cell *matCellDef="let element"> {{ element.visitor_count }} </td>
+      </ng-container>
+
+      <!-- Schedule Column -->
+      <ng-container matColumnDef="Schedule">
+        <th mat-header-cell *matHeaderCellDef> Schedule </th>
+        <td mat-cell *matCellDef="let element"> {{ element.schedule }} </td>
       </ng-container>
 
 
@@ -38,7 +42,7 @@
     </table>
   </mat-card>
   <div class="contenedor">
-    <button mat-raised-button class="btn btn-dark" (click)="navCreateVisit()">
+    <button mat-button class="CreateVisit" (click)="navCreateVisit()">
       Create New Visit
     </button>
   </div>

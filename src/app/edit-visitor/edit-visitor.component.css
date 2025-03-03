@@ -1,0 +1,72 @@
+.form-control.ng-invalid.ng-touched {
+    border-color: #bd0c0c;
+  }
+
+  .Confirm {
+    border-radius: 5px;
+    background-color: rgb(0, 119, 73);
+    color: rgb(255, 255, 255);
+    border-color: white;
+  }
+
+  .Confirm:hover {
+    border-color: rgb(67, 176, 42);
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .a {
+    text-align: left;
+    background-color: rgb(189, 12, 12, 0.8);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border-color: white;
+  }
+
+  .a:hover {
+    border-color: rgb(206, 0, 88);
+  }
+
+  .confirmDiv {
+    text-align: right;
+  }
+
+  .center {
+    text-align: center;
+    background-color: rgb(243, 208, 62);
+    border-radius: 5px;
+    border-color: white;
+    height: 40px;
+  }
+
+  .center:hover {
+    border-color: rgb(243, 208, 62);
+  }
+
+  .btnCenter {
+    text-align: center;
+    
+  }
+  
+  .header{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect */
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    border-radius: 5px; /* Optional: rounded corners */
+    height: 30px;  /* Adjust height as needed */
+    margin-bottom: 15px; /* Creates space between header and other content */
+  }
+
+  .card{
+    background-color: rgb(255, 255, 255, 0.5);
+  }
+
+  .visitor{
+    margin-bottom: 100%;
+  }

@@ -1,6 +1,7 @@
 mat-toolbar {
   background-color: #1e2a63;
-
+  flex-shrink: 0;
+  height: 64px;
 }
 
 mat-sidenav {
@@ -9,6 +10,7 @@ mat-sidenav {
   width: 200px;
   border-right: none;
   padding: 16px 0;
+  border-radius: 25px;
 }
 
 .logo {
@@ -52,7 +54,7 @@ mat-divider {
 
 .btnnn{
   background-color: rgb(5, 0, 49);
-  color: #ededed;
+  color: rgba(205,205,205,255);
 }
 
 .bottom-nav {

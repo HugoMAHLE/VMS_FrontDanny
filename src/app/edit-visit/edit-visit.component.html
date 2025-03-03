@@ -1,16 +1,18 @@
 <div class="container">
-    <h2>Edit the visit</h2>
+    <div class="header">
+        <h2>Edit the visit</h2>
+    </div>    
     <div class="card">
         <div class="card-body">
            <form>
-
+            <!--ERROR EN LA TABLA-->
             <div class="card">
                 <h3>Select your visit to edit</h3>
                 <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
                     <!-- Name of company Column -->
-                    <ng-container matColumnDef="name">
+                    <ng-container matColumnDef="CName">
                         <th mat-header-cell *matHeaderCellDef> Company name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.CName}} </td>
                     </ng-container>
                         
                     <!-- Email Column -->
@@ -23,8 +25,8 @@
                     <ng-container matColumnDef="Action">
                         <th mat-header-cell *matHeaderCellDef>Action</th>
                         <td mat-cell *matCellDef="let row">
-                        <button class="btnn" mat-button color="primary">Select</button>
-                        <button class="btnn" mat-button color="accent">Delete</button>
+                        <button class="select" mat-button>Select</button>
+                        <button class="delete" mat-button>Delete</button>
                         </td>
                     </ng-container>
 
@@ -37,7 +39,7 @@
                     <label class="form-label">
                         Please enter your new date of visit
                     </label>
-                    <input type="date" formControlName="date" class="form-control" placeholder="">
+                    <input type="date" formControlName="Date" class="form-control" placeholder="">
                     <div class="errors-container"
                         *ngIf="DateControl.invalid && (DateControl.touched) || DateControl.dirty">
                         <p class="error-msg" *ngIf="DateControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
@@ -48,7 +50,7 @@
                     <label class="form-label">
                         Please enter your new check-in time
                     </label>
-                    <input type="time" formControlName="ent" class="form-control" placeholder="">
+                    <input type="time" formControlName="Checkin" class="form-control" placeholder="">
                     <div class="errors-container"
                         *ngIf="CheckinControl.invalid && (CheckinControl.touched) || CheckinControl.dirty">
                         <p class="error-msg" *ngIf="CheckinControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
@@ -74,7 +76,7 @@
 
                         <!-- Last Name Column -->
                         <ng-container matColumnDef="LName">
-                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <th mat-header-cell *matHeaderCellDef> Last name </th>
                             <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
                         </ng-container>
                             

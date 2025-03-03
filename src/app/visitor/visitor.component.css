@@ -1,4 +1,18 @@
 
+.header {
+  text-align: center;
+  align-items: center;  /* Centers text vertically */
+  justify-content: flex-start;  /* Aligns text to the left */
+  padding-left: 20px;  /* Moves text away from the edge */
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  border-radius: 5px; /* Optional: rounded corners */
+  height: 60px;  /* Adjust height as needed */
+  margin-bottom: 20px; /* Creates space between header and other content */
+}
+
 mat-toolbar{
   background-color: rgb(255, 255, 255);
 
@@ -47,14 +61,14 @@ mat-divider{
   overflow: visible;
 }
 
-.types{
-  color: rgb(255, 255, 255);
-}
-
-.types :active{
-  color: white;
-}
-
 flex-grow-1 :root{ 
   background-color: white;
+}
+
+.ng-touched.ng-invalid:is(input,textarea), .ng-dirty.ng-invalid:is(input, textarea){
+  outline: 2px solid #bd0c0c;
+}
+
+.card{
+  background-color: rgb(255, 255, 255, 0.5);
 }

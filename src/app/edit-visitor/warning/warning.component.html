@@ -1,0 +1,12 @@
+<div class="todo">
+    <h2 mat-dialog-title class="title">Delete file</h2>
+    <mat-dialog-content class="dialog">
+        <p class="content">Would you like to delete this visitor?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions class="dialog">
+        <div class="buttons">
+            <button mat-raised-button mat-dialog-close (click)="close()" class="btnYes">No</button>
+            <button mat-raised-button mat-dialog-close cdkFocusInitial (click)="close()" class="btnNo">Yes</button>
+        </div>
+    </mat-dialog-actions>
+    </div>

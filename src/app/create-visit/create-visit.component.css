@@ -33,7 +33,8 @@
 }
 
 .header {
-  display: flex;
+  
+  text-align: center;
   align-items: center;  /* Centers text vertically */
   justify-content: flex-start;  /* Aligns text to the left */
   padding-left: 20px;  /* Moves text away from the edge */
@@ -50,4 +51,12 @@
   margin: 0;  /* Removes default margin */
   padding: 0; /* Ensures no extra padding */
   line-height: 1; /* Adjusts text height */
+}
+
+.visit{
+  margin-top: 10px;
+}
+
+.card{
+  background-color: rgb(255, 255, 255, 0.5);
 }

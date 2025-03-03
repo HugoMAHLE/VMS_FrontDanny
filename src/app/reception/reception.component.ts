@@ -26,10 +26,6 @@ logOff() {
   this.router.navigate(['/login']);
 }
 
-navConfirmCaseta(){
-  this.router.navigate(["/security/confirm"]);
-}
-
 cards1 : {title: string, subtitle: string, hour: string, date: string}[] = [];
 cards3 : {title: string, subtitle: string, hour: string, date: string}[] = [];
 cards4 : {title: string, subtitle: string, hour: string, date: string}[] = [];

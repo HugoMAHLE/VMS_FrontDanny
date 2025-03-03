@@ -18,6 +18,8 @@ import { VisitConfirmComponent } from './visit-confirm/visit-confirm.component';
 import { VideoVisitComponent } from './video-visit/video-visit.component';
 import { VisitErrorComponent } from './visit-error/visit-error.component';
 import { RecVisitsComponent } from './rec-visits/rec-visits.component';
+import { EditVisitComponent } from './edit-visit/edit-visit.component';
+import { EditVisitorComponent } from './edit-visitor/edit-visitor.component';
 export const routes: Routes = [
   {
     path:'',
@@ -48,17 +50,23 @@ export const routes: Routes = [
       {
         path: 'create-visitor',
         component: VisitorComponent
+      },
+      {
+        path: 'edit-visitor',
+        component: EditVisitorComponent
+      },
+      {
+        path: 'edit-visit',
+        component: EditVisitComponent
       }
+      
     ]
   },
   {
     path: 'reception',
     component: ReceptionComponent,
     children: [
-      {
-        path: 'RecVisits',
-        component: RecVisitsComponent
-      }
+      
     ]
   },
   {
