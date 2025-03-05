@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef,MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-warning',
   standalone: true,
-  imports: [MatDialogActions, MatDialogContent],
+  imports: [MatDialogActions, MatDialogContent, MatDialogTitle,MatDialogClose,MatButtonModule],
   templateUrl: './warning.component.html',
   styleUrl: './warning.component.css'
 })

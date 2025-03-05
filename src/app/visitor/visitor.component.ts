@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddCompanyComponent } from '../create-visit/dialog/addcompany/addCompany.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 interface Visitor{
   type: string;
@@ -37,6 +38,7 @@ interface Visitor{
     MatFormFieldModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatButtonModule
   ]
 })
 

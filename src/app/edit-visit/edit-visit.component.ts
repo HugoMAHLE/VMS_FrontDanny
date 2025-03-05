@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDivider } from '@angular/material/divider';
 import { NgIf } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from 'express';
 
 export interface TableCompany{
   CName: string
@@ -31,11 +33,15 @@ const ELEMENT_DATA: TableCompany[] = [
   FormsModule, 
   ReactiveFormsModule, 
   NgIf,
-  MatTableModule],
+  MatTableModule,
+  MatButtonModule],
   templateUrl: './edit-visit.component.html',
   styleUrl: './edit-visit.component.css'
 })
 export class EditVisitComponent {
+
+  router = inject(Router);
+
   LVisitForm = new FormGroup({
     Date : new FormControl('', Validators.required),
     Checkin : new FormControl('', Validators.required)
@@ -53,4 +59,11 @@ export class EditVisitComponent {
     dataSource = new MatTableDataSource<TableCompany>(ELEMENT_DATA);
     selection = new SelectionModel<TableCompany>(true, []);
 
+   NavAdd(){
+    this.router.navigate(['menu/add-visitor'])
+   } 
+
+   NavCreate(){
+    this.router.navigate(['menu/create-visitor'])
+   }
 }

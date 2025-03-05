@@ -14,20 +14,17 @@
     outline: 2px solid #bd0c0c;
 }
 
-.a{
-    background-color: rgb(3, 133, 3);
-    color: rgb(252, 252, 252);
+.a, .b{
+    border: none;
     border-radius: 5px;
-    border-color: rgb(3, 133, 3);
-    height: calc(10svh - 65px);
+    padding: 10px 15px; /* Makes buttons more visually balanced */
+    height: auto; /* Prevents height issues */
 }
 
-.b{
-    background-color: rgb(7, 162, 209);
-    color: rgb(252, 252, 252);
-    border-radius: 5px;
-    border-color: rgb(7, 162, 209);
-    height: calc(10svh - 65px);
+.divBtn{
+    display: flex;
+    gap: 15px; /* Adds spacing between the buttons */
+    justify-content: flex-end; /* Ensures they stay aligned to the right */
 }
 
 .division{
@@ -64,4 +61,10 @@
 
 .action{
     align-items: end;
+}
+
+.edit{
+    border: none;
+    width: 500px;
+    border-radius: 5px;
 }

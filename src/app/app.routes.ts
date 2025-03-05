@@ -55,10 +55,7 @@ export const routes: Routes = [
         path: 'edit-visitor',
         component: EditVisitorComponent
       },
-      {
-        path: 'edit-visit',
-        component: EditVisitComponent
-      }
+
       
     ]
   },

@@ -1,24 +1,24 @@
 <div class="container">
   <div class="header">
-    <h2>Create a new visitor</h2>
+    <h2>Create a new guest</h2>
   </div>
   <div class="card">
     <div class="card-body">
       <form>
         <!-- Type of visitors -->
         <div class="card-body" [formGroup]="newVisitorForm">
-          <label class="form-label">Please enter the type of visitor</label>
+          <label class="form-label">Please enter the type of guest</label>
           <div class="d-flex align-items-center">
             <mat-form-field appearance="fill" class="flex-grow-1">
-              <mat-label class="types">Select the type of visitor who will come</mat-label>
+              <mat-label class="types">Select the type of guest who will come</mat-label>
               <mat-select [formControl]="VisitorControl" required>
                 <mat-option>--</mat-option>
                 @for(visitor of visitors; track visitor){
-                  <mat-option [value]="visitor">{{visitor.type}}</mat-option>
+                <mat-option [value]="visitor">{{visitor.type}}</mat-option>
                 }
               </mat-select>
               @if (VisitorControl.hasError('required')){
-                <mat-error>Please choose a type</mat-error>
+              <mat-error>Please choose a type</mat-error>
               }
             </mat-form-field>
           </div>
@@ -26,48 +26,49 @@
         <!-- Name -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the Name of your Visitor
+            Please enter the Name of your guest
           </label>
           <input type="fname" formControlName="fname" class="form-control" placeholder='Ex. "Peter"'>
-          <div class="errors-container"
-            *ngIf="fnameControl.invalid && (fnameControl.touched) || fnameControl.dirty">
-            <p class="error-msg" *ngIf="fnameControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+          <div class="errors-container" *ngIf="fnameControl.invalid && (fnameControl.touched) || fnameControl.dirty">
+            <p class="error-msg" *ngIf="fnameControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
           </div>
         </div>
 
         <!-- Last Name -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the last name of your Visitor
+            Please enter the last name of your guest
           </label>
           <input type="lname" formControlName="lname" class="form-control" placeholder='Ex. "Parker"'>
-          <div class="errors-container"
-            *ngIf="lnameControl.invalid && (lnameControl.touched) || lnameControl.dirty">
-            <p class="error-msg" *ngIf="lnameControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+          <div class="errors-container" *ngIf="lnameControl.invalid && (lnameControl.touched) || lnameControl.dirty">
+            <p class="error-msg" *ngIf="lnameControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
           </div>
         </div>
 
         <!-- Email -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the E-mail of your Visitor
+            Please enter the E-mail of your guest
           </label>
-          <input type="email" formControlName="email" class="form-control" placeholder='Ex. "spider.man@dailybugle.com"'>
-          <div class="errors-container"
-            *ngIf="emailControl.invalid && (emailControl.touched) || emailControl.dirty">
-            <p class="error-msg" *ngIf="emailControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+          <input type="email" formControlName="email" class="form-control"
+            placeholder='Ex. "spider.man@dailybugle.com"'>
+          <div class="errors-container" *ngIf="emailControl.invalid && (emailControl.touched) || emailControl.dirty">
+            <p class="error-msg" *ngIf="emailControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
           </div>
         </div>
 
         <!-- Cellphone -->
         <div class="card-body" [formGroup]="newVisitorForm">
           <label class="form-label">
-            Please enter the phone number of your Visitor
+            Please enter the phone number of your guest
           </label>
           <input type="phone" formControlName="phone" class="form-control" placeholder='Ex. "+19151234567"'>
-          <div class="errors-container"
-            *ngIf="phoneControl.invalid && (phoneControl.touched) || phoneControl.dirty">
-            <p class="error-msg" *ngIf="phoneControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+          <div class="errors-container" *ngIf="phoneControl.invalid && (phoneControl.touched) || phoneControl.dirty">
+            <p class="error-msg" *ngIf="phoneControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
           </div>
         </div>
 
@@ -77,10 +78,7 @@
           <div class="d-flex align-items-center">
             <mat-form-field appearance="fill" class="flex-grow-1">
               <mat-label>Select or add an enterprise</mat-label>
-              <mat-select
-                formControlName="company"
-                (selectionChange)="onEnterpriseSelect($event)"
-              >
+              <mat-select formControlName="company" (selectionChange)="onEnterpriseSelect($event)">
                 <mat-option *ngFor="let enterprise of enterprises" [value]="enterprise">
                   {{ enterprise }}
                 </mat-option>
@@ -96,13 +94,14 @@
         </div>
 
         <!-- Buttons -->
+
         <div class="container">
-          <button class="btn btn-dark" (click)="registerVisitor()">
-            Save and Add User
-          </button>
-        </div>
-        <div class="container">
-          <button mat-button class="a" (click)="navCreate()">« Get back</button>
+          <div class="buttons">
+            <button mat-flat-button class="a" (click)="navCreate()">« Get back</button>
+            <button mat-flat-button class="save" (click)="registerVisitor()">
+              Save and Add User
+            </button>
+          </div>
         </div>
       </form>
     </div>

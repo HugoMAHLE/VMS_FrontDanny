@@ -72,3 +72,26 @@ flex-grow-1 :root{
 .card{
   background-color: rgb(255, 255, 255, 0.5);
 }
+
+.save {
+  background-color: rgb(67, 176, 42) !important;
+  color: white !important;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px; /* Makes buttons more visually balanced */
+  height: auto; /* Prevents height issues */
+}
+
+.a{
+  background-color: rgb(186, 12, 47) !important;
+  color: white !important;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px; /* Makes buttons more visually balanced */
+  height: auto; /* Prevents height issues */
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}

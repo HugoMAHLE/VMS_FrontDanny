@@ -1,39 +1,38 @@
 <div class="container">
     <div class="header">
         <h2>Edit the visit</h2>
-    </div>    
+    </div>
     <div class="card">
         <div class="card-body">
-           <form>
-            <!--ERROR EN LA TABLA-->
-            <div class="card">
-                <h3>Select your visit to edit</h3>
-                <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
-                    <!-- Name of company Column -->
-                    <ng-container matColumnDef="CName">
-                        <th mat-header-cell *matHeaderCellDef> Company name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.CName}} </td>
-                    </ng-container>
-                        
-                    <!-- Email Column -->
-                    <ng-container matColumnDef="email">
-                        <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-                    </ng-container>
+            <form>
+                <div class="card">
+                    <h3>Select your visit to edit</h3>
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                        <!-- Name of company Column -->
+                        <ng-container matColumnDef="CName">
+                            <th mat-header-cell *matHeaderCellDef> Company name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.CName}} </td>
+                        </ng-container>
+
+                        <!-- Email Column -->
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
 
                         <!-- Actions -->
-                    <ng-container matColumnDef="Action">
-                        <th mat-header-cell *matHeaderCellDef>Action</th>
-                        <td mat-cell *matCellDef="let row">
-                        <button class="select" mat-button>Select</button>
-                        <button class="delete" mat-button>Delete</button>
-                        </td>
-                    </ng-container>
+                        <ng-container matColumnDef="Action">
+                            <th mat-header-cell *matHeaderCellDef>Actions</th>
+                            <td mat-cell *matCellDef="let row">
+                                <button class="select" mat-button>Select</button>
+                                <button class="delete" mat-button>Delete</button>
+                            </td>
+                        </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
-            </div>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
 
                 <div class="card-body">
                     <label class="form-label">
@@ -42,7 +41,8 @@
                     <input type="date" formControlName="Date" class="form-control" placeholder="">
                     <div class="errors-container"
                         *ngIf="DateControl.invalid && (DateControl.touched) || DateControl.dirty">
-                        <p class="error-msg" *ngIf="DateControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                        <p class="error-msg" *ngIf="DateControl.hasError('required')" style="color: #bd0c0c">The field
+                            must be required.</p>
                     </div>
                 </div>
 
@@ -53,21 +53,22 @@
                     <input type="time" formControlName="Checkin" class="form-control" placeholder="">
                     <div class="errors-container"
                         *ngIf="CheckinControl.invalid && (CheckinControl.touched) || CheckinControl.dirty">
-                        <p class="error-msg" *ngIf="CheckinControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+                        <p class="error-msg" *ngIf="CheckinControl.hasError('required')" style="color: #bd0c0c">The
+                            field must be required.</p>
                     </div>
                 </div>
 
                 <mat-divider class="divider"></mat-divider>
 
                 <div class="division" style="text-align: right;">
-                    <div>
-                        <button class="b" routerLink="/AddVisitor">Add [+]</button>
-                        <button class="a" routerLink="/Client">Create new</button>
+                    <div class="divBtn">
+                        <button mat-flat-button class="b" (click)="NavAdd()">Add guest [+]</button>
+                        <button mat-flat-button class="a" (click)="NavCreate()">Create guest</button>
                     </div>
                 </div>
 
                 <div class="card">
-                    <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                         <!-- Name Column -->
                         <ng-container matColumnDef="Name">
                             <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -77,9 +78,9 @@
                         <!-- Last Name Column -->
                         <ng-container matColumnDef="LName">
                             <th mat-header-cell *matHeaderCellDef> Last name </th>
-                            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.LName}} </td>
                         </ng-container>
-                            
+
                         <!-- Email Column -->
                         <ng-container matColumnDef="Email">
                             <th mat-header-cell *matHeaderCellDef> E-mail </th>
@@ -91,21 +92,17 @@
                             <th mat-header-cell *matHeaderCellDef> Phone number </th>
                             <td mat-cell *matCellDef="let element"> {{element.Phone}} </td>
                         </ng-container>
-    
+
                         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
                 </div>
-
-                <div class="container">
-                    <div class="card">
-                        <button class="btn btn-dark" type="submit" [disabled]="LVisitForm.invalid">
-                            Create visit
-                        </button>
-                    </div>
+                <div>
+                    <button mat-flat-button class="edit" type="submit" [disabled]="LVisitForm.invalid">
+                        Edit visit
+                    </button>
                 </div>
-            </form> 
+            </form>
         </div>
     </div>
 </div>
-

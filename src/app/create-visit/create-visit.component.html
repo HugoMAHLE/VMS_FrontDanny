@@ -1,9 +1,8 @@
-
 <div class="container">
   <div class="header">
     <h2 class="visit">Create a new visit</h2>
   </div>
-    <div class="card">
+  <div class="card">
     <div class="card-body">
       <form>
         <div class="card-body" [formGroup]="CVisitForm">
@@ -11,17 +10,14 @@
           <div class="d-flex align-items-center">
             <mat-form-field appearance="fill" class="flex-grow-1">
               <mat-label>Select or add an enterprise</mat-label>
-              <mat-select
-                formControlName="name"
-                [(value)]="selectedCompany"
-                (selectionChange)="onEnterpriseSelect($event.value)"
-              >
-              <mat-option *ngFor="let enterprise of enterprises" [value]="enterprise">
-                {{ enterprise }}
-              </mat-option>
-              <mat-option (click)="addEnterprise()" [value]="'addNew'">
-                Add New Company
-              </mat-option>
+              <mat-select formControlName="name" [(value)]="selectedCompany"
+                (selectionChange)="onEnterpriseSelect($event.value)">
+                <mat-option *ngFor="let enterprise of enterprises" [value]="enterprise">
+                  {{ enterprise }}
+                </mat-option>
+                <mat-option (click)="addEnterprise()" [value]="'addNew'">
+                  Add New Company
+                </mat-option>
               </mat-select>
               <mat-error *ngIf="nameControl.hasError('required')">
                 The field must be required.
@@ -31,35 +27,36 @@
         </div>
 
         <div class="card-body" [formGroup]="CVisitForm">
-            <label class="form-label">
-                Please enter your date of visit
-            </label>
-            <input type="date" formControlName="date" class="form-control" placeholder="">
-            <div class="errors-container"
-                *ngIf="dateControl.invalid && (dateControl.touched) || dateControl.dirty">
-                <p class="error-msg" *ngIf="dateControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
-            </div>
+          <label class="form-label">
+            Please enter your date of visit
+          </label>
+          <input type="date" formControlName="date" class="form-control" placeholder="">
+          <div class="errors-container" *ngIf="dateControl.invalid && (dateControl.touched) || dateControl.dirty">
+            <p class="error-msg" *ngIf="dateControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
+          </div>
         </div>
 
         <div class="card-body" [formGroup]="CVisitForm">
-            <label class="form-label">
-                Please enter your check-in time
-            </label>
-            <input type="time" formControlName="ent" class="form-control" placeholder="">
-            <div class="errors-container"
-                *ngIf="entControl.invalid && (entControl.touched) || entControl.dirty">
-                <p class="error-msg" *ngIf="entControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
-            </div>
+          <label class="form-label">
+            Please enter your check-in time
+          </label>
+          <input type="time" formControlName="ent" class="form-control" placeholder="">
+          <div class="errors-container" *ngIf="entControl.invalid && (entControl.touched) || entControl.dirty">
+            <p class="error-msg" *ngIf="entControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
+          </div>
         </div>
 
         <div class="card-body" [formGroup]="CVisitForm">
           <label class="form-label">
             Purpose of your visit
           </label>
-          <input type="text" formControlName="reason" class="form-control" placeholder="Please enter the reason of your visit">
-          <div class="errors-container"
-            *ngIf="reasonControl.invalid && (reasonControl.touched) || reasonControl.dirty">
-            <p class="error-msg" *ngIf="reasonControl.hasError('required')" style="color: #bd0c0c">The field must be required.</p>
+          <input type="text" formControlName="reason" class="form-control"
+            placeholder="Please enter the reason of your visit">
+          <div class="errors-container" *ngIf="reasonControl.invalid && (reasonControl.touched) || reasonControl.dirty">
+            <p class="error-msg" *ngIf="reasonControl.hasError('required')" style="color: #bd0c0c">The field must be
+              required.</p>
           </div>
         </div>
 
@@ -73,42 +70,39 @@
         </div>
 
         <div class="card">
-          <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
-              <!-- Name Column -->
-              <ng-container matColumnDef="fname">
-                <th mat-header-cell *matHeaderCellDef> First Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
-              </ng-container>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Name Column -->
+            <ng-container matColumnDef="fname">
+              <th mat-header-cell *matHeaderCellDef> First Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+            </ng-container>
 
-              <!-- Last Name Column -->
-              <ng-container matColumnDef="lname">
-                <th mat-header-cell *matHeaderCellDef> Last Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
-              </ng-container>
+            <!-- Last Name Column -->
+            <ng-container matColumnDef="lname">
+              <th mat-header-cell *matHeaderCellDef> Last Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+            </ng-container>
 
-              <!-- Email Column -->
-              <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-              </ng-container>
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> E-mail </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
 
-              <!-- Phone Column -->
-              <ng-container matColumnDef="phone">
-                <th mat-header-cell *matHeaderCellDef> Phone number </th>
-                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-              </ng-container>
+            <!-- Phone Column -->
+            <ng-container matColumnDef="phone">
+              <th mat-header-cell *matHeaderCellDef> Phone number </th>
+              <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+            </ng-container>
 
-              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
-
-        <div class="container">
-          <div class="card">
-            <button class="btn btn-dark" (click)="createVisit()" type="button">
-              Create visit
-            </button>
-          </div>
+        <div class="createBtn">
+          <button mat-flat-button class="create" (click)="createVisit()" type="button">
+            Create visit
+          </button>
         </div>
       </form>
     </div>
