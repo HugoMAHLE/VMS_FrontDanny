@@ -6,29 +6,35 @@
         <mat-form-field>
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Peter" #input>
-        </mat-form-field>  
+        </mat-form-field>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- Position Column -->
+            <!-- Type Column -->
+            <ng-container matColumnDef="Type">
+                <th mat-header-cell *matHeaderCellDef> Type of guest </th>
+                <td mat-cell *matCellDef="let element"> {{element.Type}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
             <ng-container matColumnDef="Name">
                 <th mat-header-cell *matHeaderCellDef> Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
             </ng-container>
 
-            <!-- Name Column -->
+            <!-- Last Name Column -->
             <ng-container matColumnDef="LastName">
                 <th mat-header-cell *matHeaderCellDef> Last name </th>
                 <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
+            <!-- email Column -->
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> E-mail </th>
                 <td mat-cell *matCellDef="let element"> {{element.email}} </td>
             </ng-container>
 
-            <!-- Symbol Column -->
+            <!-- phone Column -->
             <ng-container matColumnDef="phone">
                 <th mat-header-cell *matHeaderCellDef> Phone number </th>
                 <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
@@ -38,11 +44,11 @@
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Action </th>
                 <td mat-cell *matCellDef="let element" style="text-align: center;">
-                    <a  matTooltip="Edit the guest">
+                    <a matTooltip="Edit the guest">
                         <button mat-icon-button class="pointer">
                             <mat-icon>edit</mat-icon>
                         </button>
-                    </a>     
+                    </a>
                 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -10,38 +10,40 @@
         Log-Out
     </button>
 </mat-toolbar>
-<mat-sidenav-container>
-    <mat-sidenav>
-        <mat-nav-list>
-            <mat-list-item (click)="navHost()">
-                <mat-icon matListItemIcon>home</mat-icon>
-                Home
-            </mat-list-item>
-            <mat-list-item (click)="navCreateVisit()">
-                <mat-icon matListItemIcon>playlist_add</mat-icon>
-                Create a visit
-            </mat-list-item>
-            <mat-list-item (click)="navVisitor()">
-                <mat-icon matListItemIcon>supervised_user_circle</mat-icon>
-                Create a guest
-            </mat-list-item>
-            <mat-list-item (click)="navEditVisitor()">
-                <mat-icon matListItemIcon>update</mat-icon>
-                Edit a guest
-            </mat-list-item>
-            <mat-list-item (click)="navEditVisit()">
-                <mat-icon matListItemIcon>create</mat-icon>
-                Edit a visit
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <div class="bottom-nav">
-                <mat-divider></mat-divider>
-                <mat-list-item (click)="logOff()">
-                    <mat-icon matListItemIcon>logout</mat-icon>
-                    Log-Out
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav class="Sidenav">
+        <div class="menu-buttons">
+            <mat-nav-list>
+                <mat-list-item (click)="navHost()">
+                    <mat-icon matListItemIcon>home</mat-icon>
+                    Home
                 </mat-list-item>
-            </div>
-        </mat-nav-list>
+                <mat-list-item (click)="navCreateVisit()">
+                    <mat-icon matListItemIcon>playlist_add</mat-icon>
+                    Create a visit
+                </mat-list-item>
+                <mat-list-item (click)="navVisitor()">
+                    <mat-icon matListItemIcon>supervised_user_circle</mat-icon>
+                    Create a guest
+                </mat-list-item>
+                <mat-list-item (click)="navEditVisitor()">
+                    <mat-icon matListItemIcon>update</mat-icon>
+                    Edit a guest
+                </mat-list-item>
+                <mat-list-item (click)="navEditVisit()">
+                    <mat-icon matListItemIcon>create</mat-icon>
+                    Edit a visit
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div class="bottom-nav">
+                    <mat-divider></mat-divider>
+                    <mat-list-item (click)="logOff()">
+                        <mat-icon matListItemIcon>logout</mat-icon>
+                        Log-Out
+                    </mat-list-item>
+                </div>
+            </mat-nav-list>
+        </div>
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content">

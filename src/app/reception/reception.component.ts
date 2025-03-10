@@ -61,7 +61,7 @@ AddCard4(){
 }
 
 navDetails(){
-  this.router.navigate(['reception/recVisits']);
+  this.router.navigate(['rec-visits']);
 }
 
 }

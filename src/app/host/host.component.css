@@ -8,16 +8,11 @@
     display: flex;
     justify-content: center;
     padding: 10px;
-
 }
 
 .ag-theme-quartz{
     --ag-row-hover-color: rgb(131, 131, 131);
     --ag-header-background-color: rgb(107, 128, 197);
-}
-
-.question{
-    text-align: left;
 }
 
 .header {
@@ -36,4 +31,9 @@
 
 .CreateVisit:hover{
     background-color: rgb(0, 0, 0,0.8);
+}
+
+th{
+    width: 20%;
+    text-align: center;
 }

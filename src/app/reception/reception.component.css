@@ -2,10 +2,7 @@
   padding-top: 50px;
   text-align: center;
   padding-bottom: 50px;
-}
-
-body{
-  background: url("/assets/Images/bg4.jpg") center/cover no-repeat;
+  color: #00205b;
 }
 
 .logo {
@@ -28,11 +25,6 @@ body{
   padding-bottom: 20px;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
 .card{
   width: 20%;
   margin-top: 10px;
@@ -43,7 +35,7 @@ body{
   padding-right: 8px;
   margin-left: 6%;
   margin-right: 7%;
-  background-color: rgb(200, 201, 199, 25%);
+  background-color: rgba(230, 230, 230, 0.5);
   border-radius: 5px;
   padding-bottom: 5px;
 }
@@ -115,4 +107,13 @@ body{
 
 .Pending{
   color: rgb(67, 176, 42);
+}
+
+.background{
+  background: url("/assets/Images/bg2.jpeg") center/cover no-repeat;
+  height: calc(100svh - 65px);
+}
+
+mat-card-title{
+  color: #00205b;
 }

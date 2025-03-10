@@ -1,29 +1,36 @@
+<mat-toolbar class="upper">
+  <div class="logo"></div>
+  <span class="example-spacer"></span>
+  <button mat-fab extended class="btnnn" (click)="logOff()">
+    <mat-icon>logout</mat-icon>
+    Log-out
+  </button>
+</mat-toolbar>
 <div class="title">
-    <h1>Cabin</h1>
-  </div>
-  <div class="separator">
-  <mat-card appearance="outlined" class="separator">
+  <h1>Cabin</h1>
+</div>
+<div class="separator">
+  <mat-card appearance="outlined" class="company">
     <mat-card-header>
       <div>
-        <h2>Company #1</h2>
+        <h2>Company #</h2>
         <h4>Visit code: 101010</h4>
       </div>
     </mat-card-header>
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Daniel Tellez</mat-card-title> 
-      </mat-card-header>
-      <mat-card-content>
-        Curp: TEMD031812HCHLGNA0
-        <div>
-          Phone number: 656-107-4675
+    <mat-card-content>
+      <div>
+        <button mat-button (click)="AddCard()" class="btnEjemplo">Mostrar cartas</button>
+      </div>
+      <div *ngFor="let card of cards1">
+        <div class="card">
+          <h3>{{card.title}}</h3>
+          <h6>{{card.email}}</h6>
+          <p>{{card.phone}}</p>
         </div>
-      </mat-card-content>
-      <mat-card-actions align="end">
-      </mat-card-actions>
-    </mat-card>
+      </div>
+    </mat-card-content>
   </mat-card>
   <div class="boton">
-    <button mat-flat-button (click)="navPrint()">OK</button>
+    <button mat-flat-button class="okbtn" (click)="navOk()">OK</button>
   </div>
-  </div>
+</div>

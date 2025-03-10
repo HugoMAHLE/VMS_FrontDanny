@@ -3,7 +3,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-visit-error',
@@ -16,6 +16,6 @@ export class VisitErrorComponent {
   router = inject(Router);
 
   navConfirm(){
-    this.router.navigate(["/visiitor/confirm-visit"]);
+    this.router.navigate(["/visitor/confirm-visit"]);
   }
 }

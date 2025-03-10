@@ -59,81 +59,81 @@
     Log-out
   </button>
 </mat-toolbar>
-<div class="container">
-  <div class="title">
-    <h1>Reception</h1>
-  </div>
-  <div class="separator">
-    <mat-card appearance="outlined" class="principal">
-      <div class="today">
-        <mat-card-header class="header">
-          <mat-card-title>Today's visits in plant 1/2</mat-card-title>
-        </mat-card-header>
+
+<div class="body"></div>
+<div class="title">
+  <h1>Reception</h1>
+</div>
+<div class="separator">
+  <mat-card appearance="outlined" class="principal">
+    <div class="today">
+      <mat-card-header class="header">
+        <mat-card-title>Today's visits on floor 1/2</mat-card-title>
+      </mat-card-header>
+    </div>
+    <mat-card-content>
+      <div>
+        <button (click)="AddCard()" class="btnEjemplo">Mostrar cartas</button>
       </div>
-      <mat-card-content>
-        <div>
-          <button (click)="AddCard()" class="btnEjemplo">Mostrar cartas</button>
+      <div *ngFor="let card of cards1">
+        <div class="card">
+          <h3>{{card.title}}</h3>
+          <h4>{{card.subtitle}}</h4>
+          <p>{{card.hour}}</p>
+          <p>{{card.date}}</p>
+          <div class="btnSee">
+            <button mat-button class="See" (click)="navDetails()">See details</button>
+          </div>
+          <p class="Progress">Visit in progress</p>
         </div>
-        <div *ngFor="let card of cards1">
-          <div class="card">
-            <h3>{{card.title}}</h3>
-            <h4>{{card.subtitle}}</h4>
-            <p>{{card.hour}}</p>
-            <p>{{card.date}}</p>
-            <div class="btnSee">
-              <button mat-button class="See" (click)="navDetails()">See details</button>
-            </div>
-            <p class="Progress">Visit in progress</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined" class="principal">
+    <div class="today">
+      <mat-card-header class="header">
+        <mat-card-title>Today's visits on floor 3</mat-card-title>
+      </mat-card-header>
+    </div>
+    <mat-card-content>
+      <div>
+        <button (click)="AddCard3()" class="btnEjemplo">Mostrar cartas</button>
+      </div>
+      <div *ngFor="let card of cards3">
+        <div class="card">
+          <h3>{{card.title}}</h3>
+          <h4>{{card.subtitle}}</h4>
+          <p>{{card.hour}}</p>
+          <p>{{card.date}}</p>
+          <div class="btnSee">
+            <button mat-button class="See" (click)="navDetails()">See details</button>
+          </div>
+          <p class="Pending">Visit pending</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined" class="principal">
+    <div class="today">
+      <mat-card-header class="header">
+        <mat-card-title>Today's visits on floor 4</mat-card-title>
+      </mat-card-header>
+    </div>
+    <mat-card-content>
+      <div>
+        <button (click)="AddCard4()" class="btnEjemplo">Mostrar cartas</button>
+      </div>
+      <div *ngFor="let card of cards4">
+        <div class="card">
+          <h3>{{card.title}}</h3>
+          <h4>{{card.subtitle}}</h4>
+          <p>{{card.hour}}</p>
+          <p>{{card.date}}</p>
+          <div class="btnSee">
+            <button mat-button class="See" (click)="navDetails()">See details</button>
           </div>
         </div>
-      </mat-card-content>
-    </mat-card>
-    <mat-card appearance="outlined" class="principal">
-      <div class="today">
-        <mat-card-header class="header">
-          <mat-card-title>Today's visits in plant 3</mat-card-title>
-        </mat-card-header>
       </div>
-      <mat-card-content>
-        <div>
-          <button (click)="AddCard3()" class="btnEjemplo">Mostrar cartas</button>
-        </div>
-        <div *ngFor="let card of cards3">
-          <div class="card">
-            <h3>{{card.title}}</h3>
-            <h4>{{card.subtitle}}</h4>
-            <p>{{card.hour}}</p>
-            <p>{{card.date}}</p>
-            <div class="btnSee">
-              <button mat-button class="See" (click)="navDetails()">See details</button>
-            </div>
-            <p class="Pending">Visit pending</p>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-    <mat-card appearance="outlined" class="principal">
-      <div class="today">
-        <mat-card-header class="header">
-          <mat-card-title>Today's visits in plant 4</mat-card-title>
-        </mat-card-header>
-      </div>
-      <mat-card-content>
-        <div>
-          <button (click)="AddCard4()" class="btnEjemplo">Mostrar cartas</button>
-        </div>
-        <div *ngFor="let card of cards4">
-          <div class="card">
-            <h3>{{card.title}}</h3>
-            <h4>{{card.subtitle}}</h4>
-            <p>{{card.hour}}</p>
-            <p>{{card.date}}</p>
-            <div class="btnSee">
-              <button mat-button class="See" (click)="navDetails()">See details</button>
-            </div>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+    </mat-card-content>
+  </mat-card>
 </div>

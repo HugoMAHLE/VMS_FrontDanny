@@ -5,7 +5,7 @@ import { NgIf } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 export interface TableCompany{
   CName: string
@@ -54,10 +54,10 @@ export class EditVisitComponent {
   get CheckinControl(): FormControl{
     return this.LVisitForm.get('Checkin') as FormControl
   }
-  
+    displayedColumnsData : string[] = ['Name', 'LName', 'Email', 'Phone']
     displayedColumns : string[] = ['CName','email', 'Action']
+    EmployeesDataSource = new MatTableDataSource<TableData>()
     dataSource = new MatTableDataSource<TableCompany>(ELEMENT_DATA);
-    selection = new SelectionModel<TableCompany>(true, []);
 
    NavAdd(){
     this.router.navigate(['menu/add-visitor'])

@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 export interface guests{
+  Type: string;
   Name: string;
   LastName: string;
   email:string;
@@ -20,21 +21,21 @@ export interface guests{
 }
 
 const list_guests: guests[] = [
-  {Name: 'Daniel', LastName: 'Tellez', email: 'daniel.a.tellez@mahle.com', phone: '656-107-4675'},
-  {Name: 'Diego', LastName: 'Originales', email: 'diego.a.originales@mahle.com', phone: '656-106-3246'},
-  {Name: 'Julian', LastName: 'Elizarraras', email: 'julian.b.elizarraras@mahle.com', phone: '656-567-8912'},
-  {Name: 'Hugo', LastName: 'Meza', email: 'hugo.a.meza@mahle.com', phone: '656-123-4565'},
-  {Name: 'Gustavo', LastName: 'Montreal', email: 'gustavo.o.montreal@mahle.com', phone: '656-237-6789'},
-  {Name: 'Juan', LastName: 'Montes', email: 'jaun.a.montes@mahle.com', phone: '656-107-4675'},
-  {Name: 'Fernando', LastName: 'Valles', email: 'fernando.a.valles@mahle.com', phone: '656-106-3246'},
-  {Name: 'Nancy', LastName: 'Magallanes', email: 'nancy.b.magallanes@mahle.com', phone: '656-567-8912'},
-  {Name: 'Areli', LastName: 'Vazquez', email: 'areli.i.vazquez@mahle.com', phone: '656-123-4565'},
-  {Name: 'Araceli', LastName: 'Mendez', email: 'araceli.o.mendez@mahle.com', phone: '656-237-6789'},
-  {Name: 'Daniela', LastName: 'Camacho', email: 'daniela.a.camacho@mahle.com', phone: '656-107-4675'},
-  {Name: 'Aurora', LastName: 'Rodriguez', email: 'aurora.a.rodriguez@mahle.com', phone: '656-106-3246'},
-  {Name: 'Jorge', LastName: 'Perez', email: 'jorge.a.perez@mahle.com', phone: '656-567-8912'},
-  {Name: 'Oscar', LastName: 'Garcia', email: 'oscar.a.garcia@mahle.com', phone: '656-123-4565'},
-  {Name: 'Alan', LastName: 'Romero', email: 'alan.o.romero@mahle.com', phone: '656-237-6789'},
+  {Type: 'New hire', Name: 'Daniel', LastName: 'Tellez', email: 'daniel.a.tellez@mahle.com', phone: '656-107-4675'},
+  {Type: 'Inter plants', Name: 'Diego', LastName: 'Originales', email: 'diego.a.originales@mahle.com', phone: '656-106-3246'},
+  {Type: 'Supplier', Name: 'Julian', LastName: 'Elizarraras', email: 'julian.b.elizarraras@mahle.com', phone: '656-567-8912'},
+  {Type: 'Client', Name: 'Hugo', LastName: 'Meza', email: 'hugo.a.meza@mahle.com', phone: '656-123-4565'},
+  {Type: 'New intern', Name: 'Gustavo', LastName: 'Montreal', email: 'gustavo.o.montreal@mahle.com', phone: '656-237-6789'},
+  {Type: 'New intern', Name: 'Juan', LastName: 'Montes', email: 'jaun.a.montes@mahle.com', phone: '656-107-4675'},
+  {Type: 'Client', Name: 'Fernando', LastName: 'Valles', email: 'fernando.a.valles@mahle.com', phone: '656-106-3246'},
+  {Type: 'New hire', Name: 'Nancy', LastName: 'Magallanes', email: 'nancy.b.magallanes@mahle.com', phone: '656-567-8912'},
+  {Type: 'Inter plants', Name: 'Areli', LastName: 'Vazquez', email: 'areli.i.vazquez@mahle.com', phone: '656-123-4565'},
+  {Type: 'Supplier', Name: 'Araceli', LastName: 'Mendez', email: 'araceli.o.mendez@mahle.com', phone: '656-237-6789'},
+  {Type: 'Client', Name: 'Daniela', LastName: 'Camacho', email: 'daniela.a.camacho@mahle.com', phone: '656-107-4675'},
+  {Type: 'New hire', Name: 'Aurora', LastName: 'Rodriguez', email: 'aurora.a.rodriguez@mahle.com', phone: '656-106-3246'},
+  {Type: 'New intern', Name: 'Jorge', LastName: 'Perez', email: 'jorge.a.perez@mahle.com', phone: '656-567-8912'},
+  {Type: 'Supplier', Name: 'Oscar', LastName: 'Garcia', email: 'oscar.a.garcia@mahle.com', phone: '656-123-4565'},
+  {Type: 'Inter Plants', Name: 'Alan', LastName: 'Romero', email: 'alan.o.romero@mahle.com', phone: '656-237-6789'},
 ];
 
 
@@ -58,7 +59,7 @@ const list_guests: guests[] = [
 })
 export class EditVisitorComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['Name', 'LastName', 'email', 'phone','actions'];
+  displayedColumns: string[] = ['Type', 'Name', 'LastName', 'email', 'phone','actions'];
   dataSource = new MatTableDataSource(list_guests);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -40,7 +40,7 @@
     border-radius: 10px;
     border-color: rgb(7, 162, 209);
     margin-right: 5px;
-    color: white;
+    color: white !important;
 }
 
 .delete{
@@ -48,7 +48,7 @@
     border-radius: 10px;
     border-color: rgb(186, 12, 47);
     margin-left: 5px;
-    color: white;
+    color: white !important;
 }
 
 .btnn{
@@ -67,4 +67,13 @@
     border: none;
     width: 500px;
     border-radius: 5px;
+    margin-top: 10px;
+}
+
+.company{
+    width: 33.33%;
+}
+
+.employee{
+    width: 25%;
 }

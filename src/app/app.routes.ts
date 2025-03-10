@@ -55,7 +55,10 @@ export const routes: Routes = [
         path: 'edit-visitor',
         component: EditVisitorComponent
       },
-
+      {
+        path: 'edit-visit',
+        component: EditVisitComponent
+      }
       
     ]
   },
@@ -63,7 +66,7 @@ export const routes: Routes = [
     path: 'reception',
     component: ReceptionComponent,
     children: [
-      
+
     ]
   },
   {
@@ -72,7 +75,10 @@ export const routes: Routes = [
   },
   {
     path: 'security',
-    component: CasetaComponent
+    component: CasetaComponent,
+    children:[
+
+    ]
   },
   {
     path: 'confirm-info',
@@ -81,5 +87,17 @@ export const routes: Routes = [
   {
     path: 'video',
     component: VideoVisitComponent
+  },
+  {
+    path: 'rec-visits',
+    component: RecVisitsComponent
+  },
+  {
+    path: 'confirm',
+    component: ConfirmCasetaComponent
+  },
+  {
+    path: 'Wait-print',
+    component: PrintComponent
   }
 ];
