@@ -5,7 +5,11 @@ import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { title } from 'process';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf} from '@angular/common';
+import axios from 'axios';
+import { DataSource } from '@angular/cdk/collections';
+import { environment } from '../../environments/environment.development';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-reception',
@@ -16,8 +20,18 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class ReceptionComponent {
 router = inject(Router);
+api_url = environment.api_URL
+showCards = true;
+visitArray: any[] = [];
 
-showCards = false;
+constructor(private cdr: ChangeDetectorRef) {}
+
+ngOnInit(){
+  this.getTodayVisits(this.cards1,1);
+  this.getTodayVisits(this.cards1,2);
+  this.getTodayVisits(this.cards3,3);
+  this.getTodayVisits(this.cards4,4);
+}
 
 logOff() {
   console.log("sesion terminada");
@@ -30,34 +44,29 @@ cards1 : {title: string, subtitle: string, hour: string, date: string}[] = [];
 cards3 : {title: string, subtitle: string, hour: string, date: string}[] = [];
 cards4 : {title: string, subtitle: string, hour: string, date: string}[] = [];
 
-AddCard(){
+AddCard(card: any, title: string, subtitle: number, hour: string, date: Date ){
   const newCard = {
-    title: `Company ${this.cards1.length + 1}`,
-    subtitle: `# guests`,
-    hour: `10:30 A.M` ,
-    date: `25/11/2024`
+    title: title,
+    subtitle: subtitle,
+    hour: hour,
+    date: date
   }
-  this.cards1.push(newCard);
+  card.push(newCard);
 }
 
-AddCard3(){
-  const newCard = {
-    title: `Company ${this.cards3.length + 1}`,
-    subtitle: `# guests`,
-    hour: `10:30 A.M` ,
-    date: `25/11/2024`
-  }
-  this.cards3.push(newCard);
-}
+async getTodayVisits(card: any, plant: number){
+  const visitTable = await axios.get(`${this.api_url}visit/recep-visits?plant=${plant}`)
+  this.visitArray = visitTable.data.msg;
 
-AddCard4(){
-  const newCard = {
-    title: `Company ${this.cards4.length + 1}`,
-    subtitle: `# guests`,
-    hour: `10:30 A.M` ,
-    date: `25/11/2024`
+  for (const element of this.visitArray) {
+    const company = element.company;
+    const guests = element.guests;
+    const date = element.date;
+    const time = element.setHour;
+
+    this.AddCard(card, company, guests, time, date )
   }
-  this.cards4.push(newCard);
+  this.cdr.detectChanges();
 }
 
 navDetails(){
