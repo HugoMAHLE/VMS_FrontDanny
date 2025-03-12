@@ -84,7 +84,7 @@
           <div class="btnSee">
             <button mat-button class="See" (click)="navDetails()">See details</button>
           </div>
-          <p class="Progress">Visit in progress</p>
+          <p class="Progress">{{card.schedule}}</p>
         </div>
       </div>
     </mat-card-content>
@@ -108,7 +108,7 @@
           <div class="btnSee">
             <button mat-button class="See" (click)="navDetails()">See details</button>
           </div>
-          <p class="Pending">Visit pending</p>
+          <p class="Pending">{{card.schedule}}</p>
         </div>
       </div>
     </mat-card-content>
@@ -132,6 +132,7 @@
           <div class="btnSee">
             <button mat-button class="See" (click)="navDetails()">See details</button>
           </div>
+          <p class="Progress">{{card.schedule}}</p>
         </div>
       </div>
     </mat-card-content>

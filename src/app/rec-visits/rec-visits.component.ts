@@ -1,10 +1,13 @@
-import { Component, inject} from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { Component, inject } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgFor } from '@angular/common';
+import axios from 'axios';
+import { environment } from '../../environments/environment.development';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-rec-visits',
@@ -15,18 +18,51 @@ import { NgFor } from '@angular/common';
 })
 export class RecVisitsComponent {
   router = inject(Router);
-  showCards = false;
+  api_url = environment.api_URL
+  showCards = true;
+  guestArray: any[] = [];
+  data: any = {};
 
-  cards1 : {title: string, email: string, phone: string}[] = [];
+  constructor(private cdr: ChangeDetectorRef) {}
 
-  AddCard(){
+  cards1: { title: string, email: string, phone: string }[] = [];
+
+  AddCard(card: any, title: string, email: string, phone: string) {
     const newCard = {
-      title: `Daniel Tellez`,
-      email: `ejemplo@gmail.com`,
-      phone: `656-107-4675` 
+      title: title,
+      email: email,
+      phone: phone
     }
-    this.cards1.push(newCard);
+    card.push(newCard);
   }
+
+  async getCompany(codigo: number){
+    try{
+      const getCode = await axios.get(`${this.api_url}visit/rec-visitCode?code=${codigo}`)
+        this.data = {
+          codigo: getCode.data.codigo,
+          company: getCode.data.Company
+        };
+    } catch (error){
+      console.error('Error fetching company data: ', error)
+      throw new Error('No data collected')
+    }
+  }
+
+  async getGuests(card: any, code: number) {
+    const guestsTable = await axios.get(`${this.api_url}visit/rec-guests?code=${code}`)
+    this.guestArray = guestsTable.data.msg
+
+    for(const element of this.guestArray){
+      const name = element.name;
+      const email = element.email;
+      const phone = element.phone;
+
+      this.AddCard(card, name, email, phone)
+    }
+    this.cdr.detectChanges();
+  }
+
 
   logOff() {
     console.log("sesion terminada");
@@ -35,7 +71,7 @@ export class RecVisitsComponent {
     this.router.navigate(['/login']);
   }
 
-  navMenu(){
+  navMenu() {
     this.router.navigate(['reception'])
   }
 

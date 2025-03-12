@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { NgFor } from '@angular/common';
+import axios from 'axios';
+import { environment } from '../../environments/environment.development';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-caseta',
@@ -15,6 +18,11 @@ import { NgFor } from '@angular/common';
 })
 export class ConfirmCasetaComponent {
   router = inject(Router);
+    api_url = environment.api_URL
+    showCards = true;
+    guestArray: any[] = [];
+
+    constructor(private cdr: ChangeDetectorRef) {}
 
   logOff() {
     console.log("sesion terminada");
@@ -23,17 +31,29 @@ export class ConfirmCasetaComponent {
     this.router.navigate(['/login']);
   }
 
-  showCards = false;
-
   cards1 : {title: string, email: string, phone: string}[] = [];
 
-  AddCard(){
+  AddCard( card: any, title: string, email: string, phone: string){
     const newCard = {
-      title: `Daniel Tellez`,
-      email: `ejemplo@gmail.com`,
-      phone: `656-107-4675` 
+      title: title,
+      email: email,
+      phone: phone 
     }
-    this.cards1.push(newCard);
+    card.push(newCard);
+  }
+
+  async getGuests(card: any, code: number) {
+    const guestsTable = await axios.get(`${this.api_url}visit/rec-guests?code=${code}`)
+    this.guestArray = guestsTable.data.msg
+
+    for(const element of this.guestArray){
+      const name = element.name;
+      const email = element.email;
+      const phone = element.phone;
+
+      this.AddCard(card, name, email, phone)
+    }
+    this.cdr.detectChanges();
   }
 
   navOk(){
