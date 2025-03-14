@@ -76,6 +76,9 @@ async getTodayVisits(card: any, plant: number){
 
 navDetails(code: string){
   this.router.navigate(['menu-visit/rec-visits'], {queryParams: {code: code}});
+navDetails(){
+  this.router.navigate(['rec-visits']);
+>>>>>>> parent of 26e98e6 (Cambio de ruteos)
 }
 
 }

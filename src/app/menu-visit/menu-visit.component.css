@@ -1,29 +1,3 @@
-.logo {
-    width: 180px;  /* Set the same width as your image */
-    height: 70px;  /* Set the same height as your image */
-    background-image: url("/assets/Images/logo.png");
-    background-size: contain; /* Ensures the image fits within the div */
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .example-spacer{
-    flex: 1 0 auto;
-  }
-  
-  .upper{
-    background-color: rgb(1, 24, 65);
-  }
-  
-  .btnnn{
-    background-color: rgb(5, 0, 49);
-    color: #ededed;
-  }
-
-  .fixed-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-  }
+.example-spacer{
+    flex: 1  0 auto;
+}
