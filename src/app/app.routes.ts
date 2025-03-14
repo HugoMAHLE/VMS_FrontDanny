@@ -68,13 +68,13 @@ export const routes: Routes = [
     component: PrintComponent
   },
   {
+    path: 'reception',
+    component: ReceptionComponent
+  },
+  {
     path: 'menu-visit',
     component: MenuVisitComponent,
     children: [
-      {
-        path: 'reception',
-        component: ReceptionComponent
-      },
       {
         path: 'rec-visits',
         component: RecVisitsComponent

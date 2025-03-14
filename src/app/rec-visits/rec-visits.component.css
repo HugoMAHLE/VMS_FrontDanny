@@ -72,11 +72,6 @@
     border-radius: 5px;
   }
   
-  .printbtn:hover{
-    
-    outline: 1px solid rgb(0, 87, 0);
-  }
-  
   .card{
     background-color: rgb(255, 255, 255, 0.2);
     border-radius: 5px;
@@ -109,7 +104,14 @@
   
   .printBtn{
     border: none;
-    background-color: #8e3a80;
+    background-color: #8e3a80 !important;
+    color: white !important;
+    border-radius: 10px;
+  }
+
+  .chk-out{
+    border: none;
+    background-color: #5d9ad3 !important;
     color: white !important;
     border-radius: 10px;
   }

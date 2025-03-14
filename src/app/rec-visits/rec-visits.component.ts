@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import axios from 'axios';
 import { environment } from '../../environments/environment.development';
 import { ChangeDetectorRef } from '@angular/core';
@@ -12,12 +12,12 @@ import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-rec-visits',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatToolbarModule, NgFor],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, MatToolbarModule, NgFor, NgIf],
   templateUrl: './rec-visits.component.html',
   styleUrl: './rec-visits.component.scss'
 })
 
-export class RecVisitsComponent implements OnInit{
+export class RecVisitsComponent implements OnInit {
   router = inject(Router);
   api_url = environment.api_URL
   showCards = true;
@@ -25,38 +25,50 @@ export class RecVisitsComponent implements OnInit{
   data: any = {};
   code: string | null = null
 
-  constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
 
-    ngOnInit() {
-      this.route.queryParams.subscribe(params => {
-        this.code = params['code'];
-        console.log('Código recibido:', this.code);
+  constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
 
-        if (this.code) {
-          this.getGuests(this.cards1, this.code);
-        }
-      });
-    }
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.code = params['code'];
+      console.log('Código recibido:', this.code);
 
-  cards1: { title: string, email: string, phone: string }[] = [];
+      if (this.code) {
+        this.getGuests(this.cards1, this.code);
+      }
+    });
+  }
+
+  cards1: { title: string, email: string, phone: string,   isPrintVisible: boolean, isCheckOutVisible: boolean }[] = [];
 
   AddCard(card: any, title: string, email: string, phone: string) {
     const newCard = {
       title: title,
       email: email,
-      phone: phone
+      phone: phone,
+      isPrintVisible : true,
+      isCheckOutVisible : false
     }
     card.push(newCard);
   }
 
-  async getCompany(codigo: number){
-    try{
+  showCheckOut(index: number){
+    this.cards1[index].isPrintVisible = false;
+    this.cards1[index].isCheckOutVisible = true;
+  }
+
+  hideCheckout(index: number){
+    this.cards1[index].isCheckOutVisible = false;
+  }
+
+  async getCompany(codigo: number) {
+    try {
       const getCode = await axios.get(`${this.api_url}visit/rec-visitCode?code=${codigo}`)
-        this.data = {
-          codigo: getCode.data.codigo,
-          company: getCode.data.Company
-        };
-    } catch (error){
+      this.data = {
+        codigo: getCode.data.codigo,
+        company: getCode.data.Company
+      };
+    } catch (error) {
       console.error('Error fetching company data: ', error)
       throw new Error('No data collected')
     }
@@ -66,7 +78,7 @@ export class RecVisitsComponent implements OnInit{
     const guestsTable = await axios.get(`${this.api_url}visit/rec-guests?code=${code}`)
     this.guestArray = guestsTable.data.msg
 
-    for(const element of this.guestArray){
+    for (const element of this.guestArray) {
       const name = element.name;
       const email = element.email;
       const phone = element.phone;
@@ -85,7 +97,7 @@ export class RecVisitsComponent implements OnInit{
   }
 
   navMenu() {
-    this.router.navigate(['reception'])
+    this.router.navigate(['menu-visit/reception'])
   }
 
 }
