@@ -1,3 +1,4 @@
+
 <mat-toolbar class="upper">
   <div class="logo"></div>
   <span class="example-spacer"></span>
@@ -23,9 +24,17 @@
       </div>
       <div *ngFor="let card of cards1">
         <div class="card">
-          <h3>{{card.title}}</h3>
+          <h3>{{card.title}} <span [ngClass]="{
+            'badge-expected':statusClass === 'Expected',
+            'badge-chkin':statusClass === 'Checked-In',
+            'badge-chkout':statusClass === 'Checked-Out'}"
+          >{{statusClass}}</span></h3>
+          <br/>
+          <p>Email:</p>
           <h6>{{card.email}}</h6>
-          <p>{{card.phone}}</p>
+          <br/>
+          <p>Phone:</p>
+          <h6>{{card.phone}}</h6>
           <div class="btnP">
             <button mat-button class="printBtn">Print</button>
           </div>
