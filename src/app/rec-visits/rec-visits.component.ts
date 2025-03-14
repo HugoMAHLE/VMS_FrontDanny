@@ -58,7 +58,7 @@ export class RecVisitsComponent implements OnInit {
   }
 
   hideCheckout(index: number){
-    this.cards1[index].isCheckOutVisible = false;
+    this.cards1[index].isCheckOutVisible = false
   }
 
   async getCompany(codigo: number) {
