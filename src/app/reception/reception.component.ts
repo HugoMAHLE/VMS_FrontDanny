@@ -40,17 +40,18 @@ logOff() {
   this.router.navigate(['/login']);
 }
 
-cards1 : {title: string, subtitle: string, hour: string, date: string, schedule: string}[] = [];
-cards3 : {title: string, subtitle: string, hour: string, date: string, schedule: string}[] = [];
-cards4 : {title: string, subtitle: string, hour: string, date: string, schedule: string}[] = [];
+cards1 : {code: string, title: string, subtitle: string, hour: string, date: string, schedule: string}[] = [];
+cards3 : {code: string, title: string, subtitle: string, hour: string, date: string, schedule: string}[] = [];
+cards4 : {code: string, title: string, subtitle: string, hour: string, date: string, schedule: string}[] = [];
 
-AddCard(card: any, title: string, subtitle: number, hour: string, date: Date , schedule: string){
+AddCard(card: any, title: string, subtitle: number, hour: string, date: Date , schedule: string, code:string){
   const newCard = {
     title: title,
     subtitle: subtitle,
     hour: hour,
     date: date,
-    schedule: schedule
+    schedule: schedule,
+    code: code
   }
   card.push(newCard);
 }
@@ -65,14 +66,16 @@ async getTodayVisits(card: any, plant: number){
     const date = element.date;
     const time = element.setHour;
     const schedule = element.schedule
+    const code = element.code
 
-    this.AddCard(card, company, guests, time, date, schedule )
+    this.AddCard(card, company, guests, time, date, schedule, code )
   }
   this.cdr.detectChanges();
 }
 
-navDetails(){
-  this.router.navigate(['menu-visit/rec-visits']);
+
+navDetails(code: string){
+  this.router.navigate(['menu-visit/rec-visits'], {queryParams: {code: code}});
 }
 
 }

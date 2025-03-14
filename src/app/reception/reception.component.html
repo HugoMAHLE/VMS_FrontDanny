@@ -71,9 +71,10 @@
           <h3>{{card.title}}</h3>
           <h4>{{card.subtitle}}</h4>
           <p>{{card.hour}}</p>
+          <p>{{card.code}}</p>
           <p>{{card.date}}</p>
           <div class="btnSee">
-            <button mat-button class="See" (click)="navDetails()">See details</button>
+            <button mat-button class="See" (click)="navDetails(card.code)">See details</button>
           </div>
           <p class="Progress">{{card.schedule}}</p>
         </div>
@@ -95,9 +96,10 @@
           <h3>{{card.title}}</h3>
           <h4>{{card.subtitle}}</h4>
           <p>{{card.hour}}</p>
+          <p>{{card.code}}</p>
           <p>{{card.date}}</p>
           <div class="btnSee">
-            <button mat-button class="See" (click)="navDetails()">See details</button>
+            <button mat-button class="See" (click)="navDetails(card.code)">See details</button>
           </div>
           <p class="Pending">{{card.schedule}}</p>
         </div>
@@ -119,9 +121,10 @@
           <h3>{{card.title}}</h3>
           <h4>{{card.subtitle}}</h4>
           <p>{{card.hour}}</p>
+          <p>{{card.code}}</p>
           <p>{{card.date}}</p>
           <div class="btnSee">
-            <button mat-button class="See" (click)="navDetails()">See details</button>
+            <button mat-button class="See" (click)="navDetails(card.code)">See details</button>
           </div>
           <p class="Progress">{{card.schedule}}</p>
         </div>

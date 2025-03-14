@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgFor } from '@angular/common';
@@ -16,14 +16,27 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './rec-visits.component.html',
   styleUrl: './rec-visits.component.scss'
 })
-export class RecVisitsComponent {
+
+export class RecVisitsComponent implements OnInit{
   router = inject(Router);
   api_url = environment.api_URL
   showCards = true;
   guestArray: any[] = [];
   data: any = {};
+  code: string | null = null
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
+
+    ngOnInit() {
+      this.route.queryParams.subscribe(params => {
+        this.code = params['code'];
+        console.log('Código recibido:', this.code);
+
+        if (this.code) {
+          this.getGuests(this.cards1, this.code);
+        }
+      });
+    }
 
   cards1: { title: string, email: string, phone: string }[] = [];
 
@@ -49,7 +62,7 @@ export class RecVisitsComponent {
     }
   }
 
-  async getGuests(card: any, code: number) {
+  async getGuests(card: any, code: string) {
     const guestsTable = await axios.get(`${this.api_url}visit/rec-guests?code=${code}`)
     this.guestArray = guestsTable.data.msg
 
