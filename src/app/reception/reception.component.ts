@@ -72,7 +72,7 @@ async getTodayVisits(card: any, plant: number){
 }
 
 navDetails(){
-  this.router.navigate(['rec-visits']);
+  this.router.navigate(['menu-visit/rec-visits']);
 }
 
 }

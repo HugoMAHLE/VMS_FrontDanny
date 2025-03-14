@@ -1,10 +1,9 @@
-<mat-toolbar>
-    <img src="https://logodownload.org/wp-content/uploads/2024/04/mahle-logo.png" width="190" height="50"
-        class="d-inline-block align-text-top">
-        <span class="example-spacer"></span>
-    <button mat-icon-button>
-        <mat-icon matListItemIcon>
-            exit_to_app
-        </mat-icon>
+<mat-toolbar class="upper fixed-header">
+    <div class="logo"></div>
+    <span class="example-spacer"></span>
+    <button mat-fab extended class="btnnn" (click)="logOff()">
+        <mat-icon>logout</mat-icon>
+        Log-out
     </button>
 </mat-toolbar>
+<router-outlet></router-outlet>

@@ -20,9 +20,10 @@ import { VisitErrorComponent } from './visit-error/visit-error.component';
 import { RecVisitsComponent } from './rec-visits/rec-visits.component';
 import { EditVisitComponent } from './edit-visit/edit-visit.component';
 import { EditVisitorComponent } from './edit-visitor/edit-visitor.component';
+import { MenuVisitComponent } from './menu-visit/menu-visit.component';
 export const routes: Routes = [
   {
-    path:'',
+    path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
@@ -59,45 +60,45 @@ export const routes: Routes = [
         path: 'edit-visit',
         component: EditVisitComponent
       }
-      
-    ]
-  },
-  {
-    path: 'reception',
-    component: ReceptionComponent,
-    children: [
 
     ]
-  },
-  {
-    path: 'visitor',
-    component: VisitCodeComponent
-  },
-  {
-    path: 'security',
-    component: CasetaComponent,
-    children:[
-
-    ]
-  },
-  {
-    path: 'confirm-info',
-    component: VisitConfirmComponent
-  },
-  {
-    path: 'video',
-    component: VideoVisitComponent
-  },
-  {
-    path: 'rec-visits',
-    component: RecVisitsComponent
-  },
-  {
-    path: 'confirm',
-    component: ConfirmCasetaComponent
   },
   {
     path: 'Wait-print',
     component: PrintComponent
+  },
+  {
+    path: 'menu-visit',
+    component: MenuVisitComponent,
+    children: [
+      {
+        path: 'reception',
+        component: ReceptionComponent
+      },
+      {
+        path: 'rec-visits',
+        component: RecVisitsComponent
+      },
+      {
+        path: 'visitor',
+        component: VisitCodeComponent
+      },
+      {
+        path: 'security',
+        component: CasetaComponent,
+      },
+      {
+        path: 'confirm-info',
+        component: VisitConfirmComponent
+      },
+      {
+        path: 'video',
+        component: VideoVisitComponent
+      },
+      {
+        path: 'confirm',
+        component: ConfirmCasetaComponent
+      },
+    ]
   }
 ];
