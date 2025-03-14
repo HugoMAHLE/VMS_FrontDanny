@@ -59,7 +59,7 @@ export const routes: Routes = [
         path: 'edit-visit',
         component: EditVisitComponent
       }
-      
+
     ]
   },
   {
