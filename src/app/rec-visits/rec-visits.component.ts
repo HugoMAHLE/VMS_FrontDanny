@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgFor } from '@angular/common';
+import { NgFor, NgClass } from '@angular/common';
 import axios from 'axios';
 import { environment } from '../../environments/environment.development';
 import { ChangeDetectorRef } from '@angular/core';
@@ -12,7 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-rec-visits',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatToolbarModule, NgFor],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, MatToolbarModule, NgClass, NgFor],
   templateUrl: './rec-visits.component.html',
   styleUrl: './rec-visits.component.scss'
 })
@@ -23,7 +23,8 @@ export class RecVisitsComponent implements OnInit{
   showCards = true;
   guestArray: any[] = [];
   data: any = {};
-  code: string | null = null
+  code: string | null = null;
+  statusClass: string = 'Checked-In';
 
   constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
 
@@ -34,6 +35,7 @@ export class RecVisitsComponent implements OnInit{
 
         if (this.code) {
           this.getGuests(this.cards1, this.code);
+          this.getCompany(this.code)
         }
       });
     }
@@ -49,16 +51,21 @@ export class RecVisitsComponent implements OnInit{
     card.push(newCard);
   }
 
-  async getCompany(codigo: number){
+  async getCompany(code: string){
     try{
-      const getCode = await axios.get(`${this.api_url}visit/rec-visitCode?code=${codigo}`)
-        this.data = {
-          codigo: getCode.data.codigo,
-          company: getCode.data.Company
-        };
+      const visitInfo = await axios.get(`${this.api_url}visit/get-visit-info?code=${code}`);
+           const companyID = visitInfo.data.msg.companyID;
+           const company = await axios.get(`${this.api_url}visitor/company-by-id?id=${companyID}`)
+           console.log("Company received: " + company)
+           this.data = {
+             codigo: this.code,
+             company: company.data.company.company
+           };
     } catch (error){
       console.error('Error fetching company data: ', error)
       throw new Error('No data collected')
+    }finally{
+      this.cdr.detectChanges();
     }
   }
 
@@ -67,7 +74,7 @@ export class RecVisitsComponent implements OnInit{
     this.guestArray = guestsTable.data.msg
 
     for(const element of this.guestArray){
-      const name = element.name;
+      const name = element.firstname + ' ' + element.lastname;
       const email = element.email;
       const phone = element.phone;
 
