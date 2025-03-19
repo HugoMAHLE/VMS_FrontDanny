@@ -30,6 +30,7 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  //-----------Host--------------
   {
     path: 'menu',
     component: MenuComponent,
@@ -62,23 +63,19 @@ export const routes: Routes = [
       
     ]
   },
+  //---------------Reception------------------
   {
     path: 'reception',
     component: ReceptionComponent,
-    children: [
-
-    ]
   },
+  {
+    path: 'rec-visits',
+    component: RecVisitsComponent
+  },
+  //----------------Visit---------------------
   {
     path: 'visitor',
     component: VisitCodeComponent
-  },
-  {
-    path: 'security',
-    component: CasetaComponent,
-    children:[
-
-    ]
   },
   {
     path: 'confirm-info',
@@ -88,14 +85,16 @@ export const routes: Routes = [
     path: 'video',
     component: VideoVisitComponent
   },
+  //--------------Security--------------------
   {
-    path: 'rec-visits',
-    component: RecVisitsComponent
+    path: 'security',
+    component: CasetaComponent,
   },
   {
     path: 'confirm',
     component: ConfirmCasetaComponent
   },
+  //---------------Extra----------------------
   {
     path: 'Wait-print',
     component: PrintComponent

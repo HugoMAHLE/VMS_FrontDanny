@@ -1,4 +1,4 @@
-<mat-toolbar class="upper">
+<mat-toolbar class="upper fixed-header">
   <div class="logo"></div>
   <span class="example-spacer"></span>
   <button mat-fab extended class="btnnn" (click)="logOff()">
@@ -6,6 +6,7 @@
     Log-out
   </button>
 </mat-toolbar>
+<br><br><br>
 <div class="title">
   <h1>Cabin</h1>
 </div>
@@ -13,8 +14,8 @@
   <mat-card appearance="outlined" class="company">
     <mat-card-header>
       <div>
-        <h2>Company #</h2>
-        <h4>Visit code: 101010</h4>
+        <h2>{{ data.company }}</h2>
+        <h4>Visit code: {{ data.codigo }}</h4>
       </div>
     </mat-card-header>
     <mat-card-content>
@@ -24,8 +25,12 @@
       <div *ngFor="let card of cards1">
         <div class="card">
           <h3>{{card.title}}</h3>
+          <br/>
+          <p>Email:</p>
           <h6>{{card.email}}</h6>
-          <p>{{card.phone}}</p>
+          <br/>
+           <p>Phone:</p>
+           <h6>{{card.phone}}</h6>
         </div>
       </div>
     </mat-card-content>

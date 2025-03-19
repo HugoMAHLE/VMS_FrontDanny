@@ -25,15 +25,15 @@
 
 
 <body>
-  <mat-toolbar class="upper">
-    <img src="https://logodownload.org/wp-content/uploads/2024/04/mahle-logo.png" width="190" height="50" class="d-inline-block align-text-top">
+  <mat-toolbar class="upper fixed-header">
+    <div class="logo"></div>
     <span class="example-spacer"></span>
     <button mat-fab extended class="btnnn" (click)="logOut()">
       <mat-icon>logout</mat-icon>
       Log-out
     </button>
   </mat-toolbar>
-
+  <br><br><br>
   <div class="container">
     <div class="separator">
       <mat-card appearance="outlined" class="separator">
@@ -44,7 +44,7 @@
           </video>
         </mat-card-content>
       </mat-card>
-      <p>el video cerrara automaticamente al finalizar</p>
+      <p style="padding-top: 20px;">The video will automatically close at the end.</p>
     </div>
   </div>
 </body>

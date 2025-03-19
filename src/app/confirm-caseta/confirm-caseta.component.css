@@ -26,6 +26,14 @@
   .upper{
     background-color: rgb(1, 24, 65);
   }
+
+  .fixed-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
   
   .btnnn{
     background-color: rgb(5, 0, 49);
