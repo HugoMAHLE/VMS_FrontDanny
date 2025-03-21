@@ -24,7 +24,7 @@
       </div>
       <div *ngFor="let card of cards1; let i = index">
         <div class="card">
-          <h3>{{card.title}} <span [ngClass]="{
+          <h3>{{card.name}} <span [ngClass]="{
             'badge-expected':statusClass === 'Expected',
             'badge-chkin':statusClass === 'Checked-In',
             'badge-chkout':statusClass === 'Checked-Out'}"
@@ -36,7 +36,7 @@
            <p>Phone:</p>
            <h6>{{card.phone}}</h6>
           <div class="btnP">
-            <button mat-button class="printBtn" *ngIf="card.isPrintVisible" (click)="print(i)">Print</button>
+            <button mat-button class="printBtn" *ngIf="card.isPrintVisible" (click)="print(card)">Print</button>
             <button mat-button class="printBtn" *ngIf="card.isCheckOutVisible" (click)="hideCheckOut(i)">Print</button>
           </div>
         </div>
