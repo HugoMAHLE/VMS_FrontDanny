@@ -31,13 +31,13 @@
 
           <!-- First Name field, just for Registration -->
           <div class="input-field" *ngIf="!isLoginView">
-            <input name="firstName" [(ngModel)]="userObj.firstName" type="text" required />
+            <input name="firstname" [(ngModel)]="userObj.firstname" type="text" required />
             <label>Nombre</label>
           </div>
 
           <!-- Last Name field, just for Registration -->
           <div class="input-field" *ngIf="!isLoginView">
-            <input name="lastName" [(ngModel)]="userObj.lastName" type="text" required />
+            <input name="lastname" [(ngModel)]="userObj.lastname" type="text" required />
             <label>Apellido</label>
           </div>
 
@@ -49,8 +49,8 @@
 
           <!-- Last Name field, just for Registration -->
           <div class="input-field" *ngIf="!isLoginView">
-            
-            <select id="planta" name="planta" [(ngModel)]="userObj.Planta">
+
+            <select id="plant" name="plant" [(ngModel)]="userObj.plant">
               <option value="1">Planta 1</option>
               <option value="2">Planta 2</option>
               <option value="3">Planta 3</option>
