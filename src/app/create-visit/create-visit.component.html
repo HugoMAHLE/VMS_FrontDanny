@@ -9,7 +9,7 @@
           <label class="form-label">Name of your company</label>
           <div class="d-flex align-items-center">
             <mat-form-field appearance="fill" class="flex-grow-1">
-              <mat-label>Select or add an enterprise</mat-label>
+              <mat-label>Select or add company</mat-label>
               <mat-select formControlName="name" [(value)]="selectedCompany"
                 (selectionChange)="onEnterpriseSelect($event.value)">
                 <mat-option *ngFor="let enterprise of enterprises" [value]="enterprise">
@@ -65,7 +65,6 @@
         <div class="division" style="text-align: right;">
           <div>
             <button mat-flat-button class="b" (click)="addVisitor()">Add guest</button>
-            <button mat-flat-button class="a" (click)="createVisitor()">Create new guest</button>
           </div>
         </div>
 

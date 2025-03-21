@@ -23,7 +23,7 @@
   height: 10%;
 }
 
-.button {
+.buttonL, .buttonR {
   position: relative;
   display: inline-block;
   border-radius: 4px;
@@ -33,7 +33,7 @@
   text-align: center;
   font-size: 28px;
   padding: 20px;
-  width: 200px;
+  width: 30%;
   transition: all 0.5s;
   transition-duration: 0.4s;
   text-decoration: none;
@@ -42,14 +42,14 @@
   margin: 5px;
 }
 
-.button span {
+.buttonL span, .buttonR span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button span:after {
+.buttonL span:after, .buttonR span:after {
   content: '+';
   position: absolute;
   opacity: 0;
@@ -58,7 +58,7 @@
   transition: 0.5s;
 }
 
-.button:after {
+.buttonL:after, .buttonR:after{
   content: "";
   background: #2c0ed3;
   display: block;
@@ -71,7 +71,7 @@
   transition: all 0.8s
 }
 
-.button:active:after {
+.buttonL:active:after, .buttonR:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
@@ -79,13 +79,17 @@
 }
 
 
-.button:hover span {
+.buttonL:hover span, .buttonR:hover span {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.buttonL:hover span:after, .buttonR:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.buttonR {
+  margin-left: 35%;
 }
 
 .title{

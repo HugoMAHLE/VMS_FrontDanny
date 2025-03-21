@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { NgIf, NgFor } from '@angular/common';
-import { Router } from '@angular/router';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import axios from 'axios';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddCompanyComponent } from '../create-visit/dialog/addcompany/addCompany.component';
 import { MatSelectModule } from '@angular/material/select';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 interface Visitor{
   type: string;
@@ -42,15 +42,17 @@ interface Visitor{
   ]
 })
 
-export class VisitorComponent {
+export class VisitorComponent implements OnInit{
   apiURL = environment.api_URL;
   enterprises: string[] = [];
   selectedCompany: string = '';
   router = inject(Router);
+  company: string | null = null;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
 
   visitorObj: any = {
+    type: '',
     fname: '',
     lname: '',
     email: '',
@@ -58,8 +60,11 @@ export class VisitorComponent {
     company: ''
   };
 
-  VisitorControl = new FormControl<Visitor | null> (null, Validators.required);
-  selectFormControl = new FormControl ('', Validators.required)
+  ngOnInit(): void {
+    this.company = this.route.snapshot.queryParams['company'];
+    console.log('Company received:', this.company);
+    this.fetchEnterprises()
+  }
 
   visitors: Visitor[] = [
     {type: 'New hire'},
@@ -70,12 +75,17 @@ export class VisitorComponent {
   ]
 
   newVisitorForm = new FormGroup({
+    type: new FormControl('', Validators.required),
     fname: new FormControl('', Validators.required),
     lname: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', Validators.required),
     company: new FormControl('', Validators.required),
   });
+
+  get typeControl(): FormControl {
+    return this.newVisitorForm.get('type') as FormControl;
+  }
 
   get fnameControl(): FormControl {
     return this.newVisitorForm.get('fname') as FormControl;
@@ -97,7 +107,25 @@ export class VisitorComponent {
     return this.newVisitorForm.get('company') as FormControl;
   }
 
+  async fetchEnterprises() {
+    try {
+      const response = await axios.get(this.apiURL + "visitor/getcompanies");
+      if (response.data.ok) {
+        this.enterprises = response.data.msg;
+
+        if (this.company) {
+          this.companyControl.setValue(this.company);
+
+        }
+        this.cdr.detectChanges();
+      }
+    } catch (error) {
+      console.error('Error fetching Enterprises:', error);
+    }
+  }
+
   async registerVisitor() {
+    const type: any = this.visitorObj.type;
     const fname: any = this.visitorObj.fname;
     const lname: any = this.visitorObj.lname;
     const email: any = this.visitorObj.email;
@@ -110,6 +138,7 @@ export class VisitorComponent {
 
     try {
       const { data } = await axios.post(this.apiURL + 'visitor/create', {
+        type,
         fname,
         lname,
         email,

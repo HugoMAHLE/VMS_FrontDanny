@@ -32,7 +32,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-  background: url("/assets/Images/bg2.jpeg") center/cover no-repeat;
+  background: url("/assets/Images/bg7.jpg") center/cover no-repeat;
   color: #00205b;
   height: calc(100svh - 65px);
 

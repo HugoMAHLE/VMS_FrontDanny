@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatDivider } from '@angular/material/divider';
@@ -51,11 +51,13 @@ export interface VisitData {
   templateUrl: './create-visit.component.html',
   styleUrls: ['./create-visit.component.css'],
 })
-export class CreateVisitComponent {
+
+export class CreateVisitComponent implements OnInit{
 
   constructor(
+    private cdr: ChangeDetectorRef,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) {}
 
   dataSource: MatTableDataSource<Visitor> = new MatTableDataSource<Visitor>([]);
@@ -86,26 +88,33 @@ export class CreateVisitComponent {
     return this.CVisitForm.get('ent') as FormControl;
   }
 
-  ngOnInit(): void {
-
+  ngOnInit() {
     const storedData = localStorage.getItem('visitFormData');
-    this.fetchEnterprises();
 
     if (storedData) {
       const visitData = JSON.parse(storedData);
       this.CVisitForm.patchValue({
-        name: visitData.companyName || '',
-        date: visitData.dateOfVisit || '',
-        ent: visitData.checkInTime || '',
-        reason: visitData.reasonForVisit || ''
-      });
-      this.selectedCompany = visitData.companyName;
+               name: visitData.companyName || '',
+               date: visitData.dateOfVisit || '',
+               ent: visitData.checkInTime || '',
+               reason: visitData.reasonForVisit || ''
+             });
+      this.selectedCompany = visitData.companyName || '';
+
+      if (this.enterprises.length > 0) {
+        this.CVisitForm.get('name')?.setValue(this.selectedCompany);
+      }
     }
+
+    this.fetchEnterprises();
 
     const storedVisitors = localStorage.getItem('selectedVisitors');
     if (storedVisitors) {
-        this.dataSource.data = JSON.parse(storedVisitors); // Example visitors array
+        this.dataSource.data = JSON.parse(storedVisitors);
     }
+
+
+    this.cdr.detectChanges();
   }
 
   addVisitor() {
@@ -126,10 +135,6 @@ export class CreateVisitComponent {
     this.router.navigate(['/menu/add-visitor']);
   }
 
-  createVisitor() {
-    this.router.navigate(['menu/create-visitor']);
-  }
-
   onEnterpriseSelect(selectedEnterprise: string) {
     console.log('Selected enterprise:', selectedEnterprise);
   }
@@ -138,9 +143,13 @@ export class CreateVisitComponent {
     try {
       const response = await axios.get(this.apiURL + "visitor/getcompanies");
       if (response.data.ok) {
-        this.enterprises = response.data.msg; // Assuming 'msg' contains the array of visitors
-      } else {
-        console.error('Error fetching Enterprises:', response.data.msg);
+        this.enterprises = response.data.msg;
+
+        if (this.selectedCompany) {
+          this.CVisitForm.get('name')?.setValue(this.selectedCompany);
+          console.error('Error fetching Enterprises:', response.data.msg);
+        }
+        this.cdr.detectChanges();
       }
     } catch (error) {
       console.error('Error fetching Enterprises:', error);

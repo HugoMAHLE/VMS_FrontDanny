@@ -121,4 +121,14 @@ export class AddVisitorComponent implements OnInit {
     this.router.navigate(['/menu/create-visit']);
   }
 
+  createVisitor() {
+    const storedData = localStorage.getItem('visitFormData');
+    let company = "";
+    if (storedData) {
+      const visitData = JSON.parse(storedData);
+      company = visitData.companyName
+    }
+    this.router.navigate(['menu/create-visitor'], {queryParams: {company: company}});
+  }
+
 }

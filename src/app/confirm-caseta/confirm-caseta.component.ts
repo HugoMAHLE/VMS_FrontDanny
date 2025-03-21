@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { ActivatedRoute,Router } from '@angular/router';
@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgFor } from '@angular/common';
 import axios from 'axios';
 import { environment } from '../../environments/environment.development';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-caseta',
@@ -18,25 +17,25 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class ConfirmCasetaComponent implements OnInit {
   router = inject(Router);
-    api_url = environment.api_URL
-    showCards = true;
-    data: any = {};
-    code: string | null = null;
-    guestArray: any[] = [];
+  api_url = environment.api_URL
+  showCards = true;
+  data: any = {};
+  code: string | null = null;
+  guestArray: any[] = [];
 
-    constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
+  constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
 
-    ngOnInit() {
-      this.route.queryParams.subscribe(params => {
-        this.code = params['code'];
-        console.log('Código recibido:', this.code);
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.code = params['code'];
+      console.log('Código recibido:', this.code);
 
-        if (this.code) {
-          this.getGuests(this.cards1, this.code);
-          this.getCompany(this.code)
-        }
-      });
-    }
+      if (this.code) {
+        this.getGuests(this.cards1, this.code);
+        this.getCompany(this.code)
+      }
+    });
+  }
 
   logOff() {
     console.log("sesion terminada");
@@ -51,7 +50,7 @@ export class ConfirmCasetaComponent implements OnInit {
     const newCard = {
       title: title,
       email: email,
-      phone: phone 
+      phone: phone
     }
     card.push(newCard);
   }
