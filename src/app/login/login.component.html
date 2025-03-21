@@ -1,116 +1,109 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitor Management System</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Management System</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <a class="logo">
-                <h2>Visitor Management System</h2>
-            </a>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <a class="logo">
+        <h2>Visitor Management System</h2>
+      </a>
+    </nav>
+  </header>
 
-    <div class="blur-bg-overlay"></div>
-    <div class="form-popup">
+  <div class="blur-bg-overlay"></div>
+  <div class="form-popup">
 
-        <form class="loginForm">
-          <div class="form">
-            <div class="wrapper">
-                <h2>{{ isLoginView ? 'Login' : 'Registro' }}</h2>
+    <form class="loginForm">
+      <div class="form">
+        <div class="wrapper">
+          <h2>{{ isLoginView ? 'Login' : 'Registro' }}</h2>
 
-                <!-- field for employee number -->
-                <div class="input-field">
-                  <input
-                    (keyup.enter)="onLogin()"
-                    name="userID"
-                    [(ngModel)]="userObj.userID"
-                    type="text"
-                    required
-                  />
-                  <label>{{ isLoginView ? 'Usuario' : 'Numero de Reloj' }}</label>
-                </div>
-
-                <!-- First Name field, just for Registration -->
-                <div class="input-field" *ngIf="!isLoginView">
-                  <input
-                    name="firstName"
-                    [(ngModel)]="userObj.firstName"
-                    type="text"
-                    required
-                  />
-                  <label>Nombre</label>
-                </div>
-
-                <!-- Last Name field, just for Registration -->
-                <div class="input-field" *ngIf="!isLoginView">
-                  <input
-                    name="lastName"
-                    [(ngModel)]="userObj.lastName"
-                    type="text"
-                    required
-                  />
-                  <label>Apellido</label>
-                </div>
-
-                <!-- Email field, just for Registration -->
-                <div class="input-field" *ngIf="!isLoginView">
-                  <input
-                    name="email"
-                    [(ngModel)]="userObj.email"
-                    type="email"
-                    required
-                  />
-                  <label>Correo Electrónico</label>
-                </div>
-
-                <!-- password field -->
-                <div class="input-field">
-                  <input
-                    (keyup.enter)="onLogin()"
-                    name="pass"
-                    [(ngModel)]="userObj.pass"
-                    type="password"
-                    required
-                  />
-                  <label>Contraseña</label>
-                </div>
-
-                <!-- aditionals -->
-                <div class="forget">
-                  <label for="remember">
-                    <input type="checkbox" id="remember" />
-                    <p>Recordarme</p>
-                  </label>
-                  <!-- <a href="#">¿Olvidaste tu contraseña?</a> -->
-                </div>
-
-                <div *ngIf="errorMessage" class="error">
-                  {{ errorMessage }}
-                </div>
-
-                <!-- Action button -->
-                <button
-                  class="button"
-                  (click)="isLoginView ? onLogin() : onRegister()"
-                  type="button"
-                >
-                  {{ isLoginView ? 'Inicia Sesión' : 'Regístrate' }}
-                </button>
-
-                <!-- Alternate login and registration -->
-                <div class="register">
-                  <p>
-                    {{ isLoginView ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?' }}
-                    <a href="#" (click)="isLoginView = !isLoginView">
-                      {{ isLoginView ? 'Regístrate' : 'Inicia Sesión' }}
-                    </a>
-                  </p>
-                </div>
-            </div>
+          <!-- field for employee number -->
+          <div class="input-field">
+            <input (keyup.enter)="onLogin()" name="userID" [(ngModel)]="userObj.userID" type="text" required />
+            <label>{{ isLoginView ? 'Usuario' : 'Numero de Reloj' }}</label>
           </div>
-        </form>
-    </div>
+
+          <!-- First Name field, just for Registration -->
+          <div class="input-field" *ngIf="!isLoginView">
+            <input name="firstName" [(ngModel)]="userObj.firstName" type="text" required />
+            <label>Nombre</label>
+          </div>
+
+          <!-- Last Name field, just for Registration -->
+          <div class="input-field" *ngIf="!isLoginView">
+            <input name="lastName" [(ngModel)]="userObj.lastName" type="text" required />
+            <label>Apellido</label>
+          </div>
+
+          <!-- Email field, just for Registration -->
+          <div class="input-field" *ngIf="!isLoginView">
+            <input name="email" [(ngModel)]="userObj.email" type="email" required />
+            <label>Correo Electrónico</label>
+          </div>
+
+          <!-- Last Name field, just for Registration -->
+          <div class="input-field" *ngIf="!isLoginView">
+            
+            <select id="planta" name="planta" [(ngModel)]="userObj.Planta">
+              <option value="1">Planta 1</option>
+              <option value="2">Planta 2</option>
+              <option value="3">Planta 3</option>
+              <option value="4">Planta 4</option>
+            </select>
+            <label for="planta">Planta</label>
+          </div>
+          <!--<div class="input-field" *ngIf="!isLoginView">
+            <input name="floor" [(ngModel)]="userObj.floor" type="text" required />
+            <mat-select>
+              <mat-option value="one">Planta 1</mat-option>
+              <mat-option value="one">Planta 2</mat-option>
+              <mat-option value="one">Planta 3</mat-option>
+              <mat-option value="one">Planta 4</mat-option>
+            </mat-select>
+            <label>Planta</label>
+          </div>-->
+
+          <!-- password field -->
+          <div class="input-field">
+            <input (keyup.enter)="onLogin()" name="pass" [(ngModel)]="userObj.pass" type="password" required />
+            <label>Contraseña</label>
+          </div>
+
+          <!-- aditionals -->
+          <div class="forget">
+            <label for="remember">
+              <input type="checkbox" id="remember" />
+              <p>Recordarme</p>
+            </label>
+            <!-- <a href="#">¿Olvidaste tu contraseña?</a> -->
+          </div>
+
+          <div *ngIf="errorMessage" class="error">
+            {{ errorMessage }}
+          </div>
+
+          <!-- Action button -->
+          <button class="button" (click)="isLoginView ? onLogin() : onRegister()" type="button">
+            {{ isLoginView ? 'Inicia Sesión' : 'Regístrate' }}
+          </button>
+
+          <!-- Alternate login and registration -->
+          <div class="register">
+            <p>
+              {{ isLoginView ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?' }}
+              <a href="#" (click)="isLoginView = !isLoginView">
+                {{ isLoginView ? 'Regístrate' : 'Inicia Sesión' }}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </body>
