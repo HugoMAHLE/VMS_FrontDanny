@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
 
   userObj: any = {
     userID: '',
+    firstname: '',
+    lastname: '',
+    plant: '',
     email: '',
     pass: ''
   };
@@ -77,10 +80,10 @@ export class LoginComponent implements OnInit {
 
   // Registration function
   async onRegister(): Promise<void> {
-    const { userID, email, pass } = this.userObj;
+    const { userID, firstname, lastname, plant, email, pass } = this.userObj;
 
     try {
-      const { data } = await axios.post(`${this.apiURL}users/register`, { userid: userID, email, pass });
+      const { data } = await axios.post(`${this.apiURL}users/register`, { userInfo: userID, firstname, lastname, plant, email, pass });
       console.log('Registro exitoso:', data);
       alert('Registro exitoso');
     } catch (error: any) {
