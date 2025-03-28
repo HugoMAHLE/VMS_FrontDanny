@@ -128,7 +128,8 @@ form {
 }
 
 .submit-btn {
-  width: calc(100% - 32px);
+  width: calc(100% - 30px);
+  height: 70px;
   margin: 0 16px;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -145,6 +146,7 @@ form {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+  
 }
 
 .custom-form-field .mat-form-field-flex {

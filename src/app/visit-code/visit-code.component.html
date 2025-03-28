@@ -29,9 +29,9 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Por favor ingrese su codigo de visita</h5>
 
                     <div data-mdb-input-init class="form-outline mb-4">
-                      <mat-form-field class="custom-form-field" hintLabel="Max 10 characters">
+                      <mat-form-field appearance="outline" class="custom-form-field" hintLabel="Max 10 characters">
                         <mat-label>Codigo</mat-label>
-                          <input matInput #input maxlength="10"
+                          <input matInput class="input-size" #input maxlength="10"
                             (focus)="openKeyboard()"
                             (keyup.enter)="$event.preventDefault(); $event.stopPropagation(); navConfirm()"
                             (input)="onInput($event)"

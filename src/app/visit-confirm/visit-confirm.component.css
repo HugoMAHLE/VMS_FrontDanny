@@ -1,3 +1,32 @@
+/* Toolbar Styles */
+.upper {
+  background-color: #00205b;
+  flex-shrink: 0;
+  height: 64px;
+}
+
+.fixed-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.example-spacer{
+  flex: 1 0 auto;
+}
+
+/* Logo & Image Handling */
+.logo {
+  width: 160px;
+  height: 60px;
+  background-image: url("/assets/Images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 body{
   background: url("/assets/Images/bg5.jpg") center/cover no-repeat;
   display: flex;
@@ -49,15 +78,6 @@ h2, h5{
 
 }
 
-.a {
-    background-color: rgb(3, 133, 3);
-    color: rgb(252, 252, 252);
-    border-radius: 5px;
-    border-color: rgb(3, 133, 3);
-    height: calc(10svh - 65px);
-}
-
-
 .visit {
     padding-bottom: 100px;
     text-align: center;
@@ -81,6 +101,7 @@ h2, h5{
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* .example-card {
@@ -122,23 +143,33 @@ h2, h5{
   padding: 10px; /* Espaciado interno para que no queden pegados al borde */
 }
 
+
+
+.shifted-down{
+  position: relative;
+  top: 18px;
+}
+
 .btnNO, .btnYES {
   border: none;
   border-radius: 5px;
-  height: calc(10svh - 40px); /* Aumenta el tamaño */
+  
   width: 150px; /* Anchura mayor para fácil toque */
   font-size: 1.5rem; /* Texto más grande */
   padding: 15px; /* Espacio interno mayor */
   cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  height: 75px;
 }
 
 .btnNO {
   color: rgb(236, 8, 8);
   border: 2px solid rgb(236, 8, 8); /* Para que resalte más */
   background-color: white;
+  margin-right: 5px;
 }
 
 .btnYES {
   background-color: rgb(8, 155, 8);
   color: white;
+  margin-left: 5px;
 }

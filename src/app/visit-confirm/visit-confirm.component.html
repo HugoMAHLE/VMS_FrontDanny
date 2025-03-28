@@ -1,3 +1,6 @@
+<mat-toolbar class="upper fixed-header">
+  <div class="logo"></div> 
+</mat-toolbar>
 <body>
   <div class="blur-bg-overlay"></div>
   <div class="container">
@@ -23,8 +26,10 @@
     </div>
   </div>
   <div class="info">
-    <h5>confirmar asistencia?</h5>
+    
     <div class="button-container">
+      <h5 class="shifted-down">confirmar asistencia?</h5>
+      <div></div>
       <button mat-stroked-button class="btnNO" (click)="navNo()">No</button>
       <button mat-flat-button class="btnYES" (click)="navYes()">Confirmar</button>
     </div>
